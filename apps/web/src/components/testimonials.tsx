@@ -14,7 +14,8 @@ export function Testimonials() {
           {testimonials.map((story) => (
             <figure className="community-story" key={`${story.name}-${story.quote}`}>
               <BrandMark aria-hidden="true" />
-              <blockquote>{story.quote}</blockquote>
+              <h3>{story.title}</h3>
+              <blockquote>“{story.quote}”</blockquote>
               <figcaption><strong>{story.name}</strong>{story.detail && <span>{story.detail}</span>}</figcaption>
             </figure>
           ))}

@@ -5811,3 +5811,9 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; font-weight: 500; }
 .community-story figcaption span { color: #68765f; font-size: 11px; }
 @media (max-width:900px) { .community-stories-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width:650px) { .community-stories-grid { grid-template-columns: 1fr; } .hero-actions { gap: 12px; } .hero-actions .store-button { min-width: 140px; padding: 11px 14px; } }
+
+.community-stories-grid { align-items: stretch; }
+.community-story { display: flex; flex-direction: column; }
+.community-story h3 { font-size: 20px; line-height: 1.35; letter-spacing: -.6px; margin: 20px 0 0; }
+.community-story blockquote { font-size: 14px; line-height: 1.85; margin: 18px 0 26px; flex: 1; }
+.community-story:nth-child(-n+3) { background: #e4ecd9; border-color: #cbd9bb; }
