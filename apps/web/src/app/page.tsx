@@ -81,7 +81,7 @@ export default function Home() {
               "@type": "WebPage",
               "@id": `${site.url}/#webpage`,
               url: site.url,
-              name: "Sinus Companion — Your Daily Sinusitis Companion",
+              name: "AirBloom — Your Daily Sinusitis Companion",
               description: site.description,
               isPartOf: { "@id": `${site.url}/#website` },
               about: {
@@ -132,6 +132,7 @@ export default function Home() {
               <span className="status-dot" /> In development for iOS & Android.
               Join the waitlist.
             </p>
+            <div className="hero-community"><span className="community-mark"><BrandMark /></span><div><strong>12k+ users</strong><span>One shared goal. More room for life.</span></div></div>
             <div className="hero-promises">
               <span>
                 <Check size={14} /> Quick check-ins

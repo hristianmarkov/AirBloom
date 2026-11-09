@@ -2,18 +2,10 @@ import type { SVGProps } from "react";
 export function BrandMark(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 36 36" fill="none" {...props}>
-      <path
-        d="M6 18c6-11 17-11 24-1M6 25c6-10 17-10 24-1"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M12 9c4-3 9-3 13 0"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
+      <path d="M18 25C10 23 8 11 18 3c10 8 8 20 0 22Z" fill="currentColor" opacity=".9" />
+      <path d="M17 26C7 26 2 18 3 10c10 0 17 8 14 16Z" fill="currentColor" opacity=".55" />
+      <path d="M19 26c10 0 15-8 14-16-10 0-17 8-14 16Z" fill="currentColor" opacity=".7" />
+      <path d="M7 31c6-3 16-3 22 0" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }

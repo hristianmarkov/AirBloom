@@ -61,7 +61,7 @@ export default async function ArticlePage({
           dateModified: "2026-11-09",
           author: {
             "@type": "Organization",
-            name: "Sinus Companion editorial team",
+            name: "AirBloom editorial team",
             url: site.url,
           },
           publisher: {
@@ -111,7 +111,7 @@ export default async function ArticlePage({
         <h1>{a.title}</h1>
         <p>{a.description}</p>
         <div className="byline">
-          Sinus Companion editorial team · November 9, 2026
+          AirBloom editorial team · November 9, 2026
           <br />
           {site.demo ? "Demo editorial content" : "Educational guide"} · Not
           clinically reviewed
@@ -182,7 +182,7 @@ export default async function ArticlePage({
             <h3>Your story, together.</h3>
             <p>
               Put your symptoms, personal patterns, and medication routines in
-              one place. Get early access to Sinus Companion.
+              one place. Get early access to AirBloom.
             </p>
             <JoinButton>
               Get early access <ArrowRight size={16} />
@@ -191,7 +191,7 @@ export default async function ArticlePage({
         </article>
         <aside
           className="article-product"
-          aria-label="Discover Sinus Companion"
+          aria-label="Discover AirBloom"
         >
           <span className="eyebrow">FROM READING TO REMEMBERING</span>
           <h2>

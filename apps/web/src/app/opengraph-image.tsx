@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
-export const alt = "Sinus Companion — Less sinus guesswork. More living.";
+import { BrandMark } from "@/components/icons";
+export const alt = "AirBloom — Less sinus guesswork. More living.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -16,21 +17,21 @@ export default function Image() {
         position: "relative",
       }}
     >
-      <div style={{ display: "flex", fontSize: 28, marginBottom: 65 }}>
-        sinus companion
+      <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 32, marginBottom: 65 }}>
+        <BrandMark width={43} height={43} /> AirBloom
       </div>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          fontFamily: "serif",
+          fontFamily: "sans-serif",
           fontSize: 76,
           letterSpacing: -3,
           lineHeight: 1.05,
         }}
       >
         <span>Less sinus guesswork.</span>
-        <span style={{ fontStyle: "italic", color: "#6d846d" }}>
+        <span style={{ fontStyle: "normal", color: "#6d846d" }}>
           More living.
         </span>
       </div>

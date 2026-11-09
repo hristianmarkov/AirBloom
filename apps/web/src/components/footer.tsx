@@ -10,7 +10,7 @@ export function Footer() {
             <Link className="brand" href="/">
               <BrandMark />
               <span>
-                sinus<span className="brand-light">companion</span>
+                Air<span className="brand-light">Bloom</span>
               </span>
             </Link>
             <p>A little clarity. More room for life.</p>
@@ -29,11 +29,11 @@ export function Footer() {
           </span>
         </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Sinus Companion</span>
+          <span>© {new Date().getFullYear()} AirBloom</span>
           <span>Your day. Your patterns. Your companion.</span>
         </div>
         <p className="health-note">
-          Sinus Companion is being developed for personal tracking and
+          AirBloom is being developed for personal tracking and
           education. It does not provide diagnosis or treatment and is not a
           substitute for professional medical advice. App screens are
           illustrative concepts; features may change.

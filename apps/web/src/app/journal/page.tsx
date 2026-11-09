@@ -19,7 +19,7 @@ export default function Journal() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "@id": `${site.url}/journal#collection`,
-          name: "The Sinus Companion Journal",
+          name: "The AirBloom Journal",
           url: `${site.url}/journal`,
           description: metadata.description,
           mainEntity: {

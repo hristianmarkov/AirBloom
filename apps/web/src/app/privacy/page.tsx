@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Waitlist privacy notice",
   description:
-    "What the Sinus Companion early-access waitlist collects, why, and how to request removal.",
+    "What the AirBloom early-access waitlist collects, why, and how to request removal.",
   alternates: { canonical: "/privacy" },
 };
 export default function Privacy() {

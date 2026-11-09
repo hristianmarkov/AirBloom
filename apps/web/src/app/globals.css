@@ -6,7 +6,7 @@
   --line: #dfe4da;
   --mint: #e9efe4;
   --peach: #edd1ad;
-  --serif: "Instrument Serif", Georgia, serif;
+  --serif: "DM Sans", Arial, sans-serif;
   --sans: "DM Sans", Arial, sans-serif;
 }
 * {
@@ -4237,7 +4237,7 @@ h4 em {
 
 /* Daily companion: warm editorial type, direct stories, quieter interfaces. */
 :root {
-  --serif: "Instrument Serif", Georgia, serif;
+  --serif: "DM Sans", Arial, sans-serif;
   --body: #546258;
 }
 h1,
@@ -5768,3 +5768,32 @@ h4 em {
 .phone-routine .routine-item > div { font-size: 9px; line-height: 1.25; }
 .phone-routine .routine-summary { font-size: 8px; line-height: 1.4; }
 .phone-routine .routine-followup { font-size: 8px; line-height: 1.4; }
+
+/* AirBloom: clean sans-serif typography and native-resolution hero artwork. */
+:root { --serif: "DM Sans", Arial, sans-serif; }
+h1 em, h2 em, h3 em, h4 em { font-style: normal; font-weight: 500; }
+.brand { letter-spacing: -1px; font-weight: 600; gap: 9px; }
+.brand-light { font-weight: 500; }
+.daily-hero h1 em { font-size: 1em; letter-spacing: inherit; }
+.daily-hero .hero-phone { transform: none; filter: none; margin-top: 0; }
+.daily-hero .hero-phone .phone { width: 300px; height: 625px; }
+.daily-hero .floating-card { transform: none; backdrop-filter: none; background: #fffefa; }
+.daily-hero .float-pattern strong { font-size: 19px; letter-spacing: -.6px; line-height: 1.3; }
+.daily-hero .hero-availability { margin-bottom: 20px; }
+.hero-community { display: flex; align-items: center; gap: 12px; margin: 0 0 25px; }
+.community-mark { display: grid; place-items: center; width: 41px; height: 41px; background: #e6eddd; border: 1px solid #d5dfca; border-radius: 50%; color: #62835c; }
+.community-mark svg { width: 27px; height: 27px; }
+.hero-community > div { display: grid; gap: 4px; }
+.hero-community strong { font-size: 16px; font-weight: 600; letter-spacing: -.4px; }
+.hero-community > div > span { font-size: 10px; color: #60725b; }
+.phone h3 { font-family: var(--sans); font-size: 19px; font-weight: 600; }
+.phone .outlook-card h4 { font-family: var(--sans); font-size: 27px; font-weight: 500; }
+.phone .insight-summary h4 { font-size: 26px; }
+@media (max-width:650px) {
+ .daily-hero .hero-visual { height: 650px; }
+ .daily-hero .hero-phone { margin-left: 0; transform: none; }
+ .daily-hero .float-pattern { top: 110px; width: 137px; right: -6px; }
+ .daily-hero .float-pattern strong { font-size: 16px; }
+ .daily-hero .float-check { bottom: 65px; }
+ .hero-community { margin-bottom: 24px; }
+}

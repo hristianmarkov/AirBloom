@@ -165,7 +165,7 @@ export const articles: Article[] = [
         title: "Leave with a plan in your own words.",
         paragraphs: [
           "Before the visit ends, ask about anything that is unclear. You can repeat the agreed next steps back in your own words and ask when a follow-up is needed.",
-          "Sinus Companion is being designed to help turn your own records into an editable visit summary. You will choose what to include and share. It is a way to prepare your story, not a clinical assessment.",
+          "AirBloom is being designed to help turn your own records into an editable visit summary. You will choose what to include and share. It is a way to prepare your story, not a clinical assessment.",
         ],
       },
     ],
@@ -229,7 +229,7 @@ export const articles: Article[] = [
       "title": "Can an app predict how my sinusitis will feel today?",
       "paragraphs": [
         "A morning overview can bring your recent entries, current check-in, and local conditions into one place. That is useful context for planning your day, but it is different from a clinically validated personal prediction.",
-        "Sinus Companion’s daily outlook is being designed around this distinction: your own history first, with uncertainty made clear. It will not guarantee a symptom-free day or tell you to change medication because of a forecast."
+        "AirBloom’s daily outlook is being designed around this distinction: your own history first, with uncertainty made clear. It will not guarantee a symptom-free day or tell you to change medication because of a forecast."
       ]
     },
     {
@@ -284,7 +284,7 @@ export const articles: Article[] = [
       "title": "A reminder is not a prescription.",
       "paragraphs": [
         "Choose a reminder label that tells you which existing routine it refers to. Use the timing specified in your treatment instructions; do not change that timing just to fit a notification.",
-        "Sinus Companion’s reminder features are being designed to keep your agreed routine visible. The app will not independently recommend a dose or decide that a symptom score means you need another medicine."
+        "AirBloom’s reminder features are being designed to keep your agreed routine visible. The app will not independently recommend a dose or decide that a symptom score means you need another medicine."
       ]
     },
     {

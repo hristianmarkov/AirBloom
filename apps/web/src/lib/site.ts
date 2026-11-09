@@ -1,7 +1,7 @@
 import { resolveSiteConfig } from "./site-config";
 
 export const site = {
-  name: "Sinus Companion",
+  name: "AirBloom",
   description:
     "A daily sinusitis companion in development: symptom tracking, treatment reminders, personal patterns, and AI support grounded in your history. Get early access.",
   ...resolveSiteConfig({
@@ -17,9 +17,9 @@ export const site = {
 
 export const faqs = [
   {
-    question: "What is Sinus Companion?",
+    question: "What is AirBloom?",
     answer:
-      "Sinus Companion is a sinus symptom tracking app in development for people with recurring or chronic sinus symptoms. It connects quick check-ins, treatment logs, local conditions, and personal patterns, with an AI companion designed to answer questions using your own history. Join the waitlist for early access on iOS and Android.",
+      "AirBloom is a sinus symptom tracking app in development for people with recurring or chronic sinus symptoms. It connects quick check-ins, treatment logs, local conditions, and personal patterns, with an AI companion designed to answer questions using your own history. Join the waitlist for early access on iOS and Android.",
   },
   {
     question: "How does the daily outlook work?",
@@ -42,9 +42,9 @@ export const faqs = [
       "No. Start with a quick check-in: clear, my usual, or worse than usual. Add symptoms, treatments, or a flare when useful. Available local conditions can be collected automatically after you choose a location; supported sleep integrations would require your permission. Missing entries stay missing, rather than being counted as symptom-free days.",
   },
   {
-    question: "Can Sinus Companion diagnose or treat sinusitis?",
+    question: "Can AirBloom diagnose or treat sinusitis?",
     answer:
-      "No. Sinus Companion is designed for personal tracking, education, and understanding your records. It does not diagnose sinusitis, prescribe treatment, or replace professional medical care. Keep following your clinician’s instructions and seek medical advice for persistent or worsening symptoms.",
+      "No. AirBloom is designed for personal tracking, education, and understanding your records. It does not diagnose sinusitis, prescribe treatment, or replace professional medical care. Keep following your clinician’s instructions and seek medical advice for persistent or worsening symptoms.",
   },
   {
     question: "How much will it cost?",
@@ -54,7 +54,7 @@ export const faqs = [
   {
     question: "Is the app available on iPhone and Android?",
     answer:
-      "Sinus Companion is in development for iOS and Android and is not available to download yet. Join the waitlist and choose your device to hear when access opens. The app screens on this website are illustrative previews, not a live medical service.",
+      "AirBloom is in development for iOS and Android and is not available to download yet. Join the waitlist and choose your device to hear when access opens. The app screens on this website are illustrative previews, not a live medical service.",
   },
   {
     question: "What happens when I join the waitlist?",

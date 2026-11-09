@@ -97,7 +97,7 @@ export function AppPreview({
           <>
             <div className="app-top">
               <span className="app-wordmark">
-                <BrandMark /> sinus companion
+                <BrandMark /> AirBloom
               </span>
               <span className="app-avatar">J</span>
             </div>
@@ -419,7 +419,7 @@ export function AppPreview({
             <p className="app-subtitle">Your story. Ready to share.</p>
             <div className="visit-paper">
               <span className="app-wordmark">
-                <BrandMark /> sinus companion
+                <BrandMark /> AirBloom
               </span>
               <div className="paper-rule" />
               <span className="app-date">PERSONAL VISIT SUMMARY</span>

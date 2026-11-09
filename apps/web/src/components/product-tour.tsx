@@ -173,7 +173,7 @@ export function ProductTour() {
           </div>
         </div>
         <p className="tour-status">
-          Sinus Companion is in development. Outlooks and AI features need
+          AirBloom is in development. Outlooks and AI features need
           validation and may change. A companion to your care, not a diagnosis
           or a prescription.
         </p>

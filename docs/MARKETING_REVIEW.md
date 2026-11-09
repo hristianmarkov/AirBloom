@@ -19,3 +19,7 @@ The supplied plan describes a future Flutter/Supabase app. Daily outlook percent
 ## Validation
 
 Production build, TypeScript and 15 unit tests passed. Sixteen desktop/mobile browser tests passed. Browser checks cover responsive layouts, tour keyboard behavior, all four articles, popup platform selection/focus, and success/error handling with mocked form responses. Visual inspection identified and fixed clipped preview content. Supabase waitlist implementation and configuration are unchanged by this marketing update. Live backend submission verification remains a separate previously documented limitation.
+
+## AirBloom brand refresh
+
+Renamed the public site, metadata, app previews and share image to AirBloom. Added a custom vector bloom logo and matching favicon; the standalone mark is served at `/airbloom-mark.svg`. Replaced Instrument Serif with self-hosted DM Sans throughout. Added the owner-confirmed 12k+ user count to the hero. Removed hero phone transforms and group filters, enlarged the native HTML/SVG preview, and regenerated all six 3× preview captures. Production build, 15 unit tests, and 16 desktop/mobile browser tests passed; hero transform/filter checks returned `none` and mobile overflow was false.

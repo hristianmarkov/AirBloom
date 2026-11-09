@@ -1,6 +1,6 @@
-# Sinus Companion
+# AirBloom
 
-A calm, editorial marketing website for the Sinus Companion product concept. Built from the supplied product specification; the website is independent of the future Flutter iOS and Android app.
+A calm, editorial marketing website for the AirBloom product concept. Built from the supplied product specification; the website is independent of the future Flutter iOS and Android app.
 
 ## Run locally
 

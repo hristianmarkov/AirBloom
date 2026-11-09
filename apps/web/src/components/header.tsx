@@ -9,10 +9,10 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container nav-wrap">
-        <Link className="brand" href="/" aria-label="Sinus Companion home">
+        <Link className="brand" href="/" aria-label="AirBloom home">
           <BrandMark />
           <span>
-            sinus<span className="brand-light">companion</span>
+            Air<span className="brand-light">Bloom</span>
           </span>
         </Link>
         <nav

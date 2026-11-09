@@ -7,7 +7,7 @@ test("homepage renders search-readable content, FAQ, and no horizontal overflow"
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
-  await expect(page).toHaveTitle(/Sinus Companion/);
+  await expect(page).toHaveTitle(/AirBloom/);
   await expect(page.locator("h1")).toContainText("Sinusitis takes enough.");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     "content",
@@ -17,12 +17,12 @@ test("homepage renders search-readable content, FAQ, and no horizontal overflow"
     2,
   );
   await page
-    .getByText("Can Sinus Companion diagnose or treat sinusitis?", {
+    .getByText("Can AirBloom diagnose or treat sinusitis?", {
       exact: true,
     })
     .click();
   await expect(
-    page.getByText("No. Sinus Companion is designed", { exact: false }),
+    page.getByText("No. AirBloom is designed", { exact: false }),
   ).toBeVisible();
   expect(
     await page.evaluate(
@@ -201,7 +201,7 @@ test("privacy removal records requests honestly and navigation works", async ({
  await expect(page.getByRole("tab", { name: /Your history/ })).toHaveAttribute("aria-selected", "true");
  await expect(page.locator(".tour-panel .phone-history")).toBeVisible();
  await page.goto("/journal/prepare-for-your-ent-appointment");
- const sidebar = page.getByRole("complementary", { name: "Discover Sinus Companion" });
+ const sidebar = page.getByRole("complementary", { name: "Discover AirBloom" });
  await expect(sidebar).toBeVisible();
  if (testInfo.project.name === "desktop") {
  await page.locator(".article-body").scrollIntoViewIfNeeded();
