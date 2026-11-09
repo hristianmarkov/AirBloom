@@ -99,9 +99,7 @@ export function ProductTour() {
             <br />
             <em>All connected.</em>
           </h2>
-          <p>
-            See how the app brings everyday sinus care into one calmer place.
-          </p>
+
         </div>
         <div
           className="tour-tabs"
@@ -172,11 +170,7 @@ export function ProductTour() {
             </p>
           </div>
         </div>
-        <p className="tour-status">
-          AirBloom is in development. Outlooks and AI features need
-          validation and may change. A companion to your care, not a diagnosis
-          or a prescription.
-        </p>
+
       </div>
     </section>
   );

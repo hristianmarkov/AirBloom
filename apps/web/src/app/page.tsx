@@ -128,17 +128,7 @@ export default function Home() {
               </a>
             </div>
             <div className="hero-community"><span className="community-mark"><BrandMark /></span><div><strong>12k+ users</strong><span>One shared goal. More room for life.</span></div></div>
-            <div className="hero-promises">
-              <span>
-                <Check size={14} /> Quick check-ins
-              </span>
-              <span>
-                <Check size={14} /> Personal insights
-              </span>
-              <span>
-                <Check size={14} /> Your data, your choice
-              </span>
-            </div>
+
           </div>
           <div
             className="hero-visual"
@@ -226,17 +216,14 @@ export default function Home() {
                 <em>It’s everything around it.</em>
               </h2>
             </div>
-            <p>
-              When symptoms keep coming back, keeping track shouldn’t become
-              another thing to deal with.
-            </p>
+
           </div>
           <div className="problem-grid">
             {everydayMoments.map(
               ({ number, icon: Icon, title, problem, answer }) => (
                 <div className="problem-card" key={number}>
                   <div className="problem-top">
-                    <span>{number}</span>
+
                     <Icon size={23} />
                   </div>
                   <h3>{title}</h3>
@@ -266,10 +253,7 @@ export default function Home() {
                 <em>Find your way through it.</em>
               </h2>
             </div>
-            <p>
-              A closer look at what we’re building around your real, everyday
-              questions.
-            </p>
+
           </div>
           <div className="feature-grid">
             <div className="feature-card feature-today">
@@ -414,11 +398,7 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <p className="feature-context">
-            Designed for personal tracking and understanding. Conditions are
-            context, not a proven cause; a daily outlook is not an attack
-            prediction.
-          </p>
+
         </div>
       </section>
 

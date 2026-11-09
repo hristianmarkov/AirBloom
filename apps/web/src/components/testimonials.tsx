@@ -53,7 +53,7 @@ export function Testimonials() {
             <span className="eyebrow">FROM THE AIRBLOOM COMMUNITY</span>
             <h2 id="stories-title">Real people.<br /><em>A little more room for life.</em></h2>
           </div>
-          <p>Personal experiences from the people who use AirBloom.</p>
+
         </div>
         <div
           ref={track}
@@ -93,7 +93,7 @@ export function Testimonials() {
           ))}
         </div>
         <div className="community-carousel-footer">
-          <span>Swipe or use the arrows to explore all {testimonials.length} stories.</span>
+
           <div className="community-carousel-controls">
             <button type="button" aria-label="Previous testimonial" aria-controls="testimonial-track" disabled={bounds.start} onClick={() => scroll(-1)}>
               <ArrowLeft size={20} aria-hidden="true" />
