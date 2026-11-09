@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { allowRequest, parseSignup, saveToSheet } from "../src/lib/waitlist";
+import { allowRequest, parseSignup, saveToSupabase } from "../src/lib/waitlist";
 
 const valid = {
   email: "  Jamie@Example.com ",
@@ -43,36 +43,31 @@ test("limits attempts, then expires the request window", () => {
   assert.equal(allowRequest("unit-test-ip", 1000), false);
   assert.equal(allowRequest("unit-test-ip", 62000), true);
 });
-test("only acknowledges a confirmed Sheet response and sends secrets in the body", async () => {
+test("saves signups and removal requests without exposing or updating stored records", async () => {
   const original = globalThis.fetch;
   try {
     globalThis.fetch = async (url, options) => {
-      assert.equal(
-        String(url),
-        "https://script.google.com/macros/s/test-deployment/exec",
-      );
+      assert.equal(String(url), "https://test.supabase.co/rest/v1/waitlist");
       const body = JSON.parse(options?.body as string);
-      assert.equal(body.secret, "test-private-key");
       assert.equal(body.email, "jamie@example.com");
-      return Response.json({ ok: true });
+      assert.equal(body.consent_version, "beta-v1");
+      assert.equal(body.platform, "ios");
+      assert.equal((options?.headers as Record<string,string>).apikey, "test-key");
+      assert.equal((options?.headers as Record<string,string>).Prefer, "return=minimal");
+      assert.equal(body.website, undefined);
+      return new Response(null, { status: 201 });
     };
-    await saveToSheet(
-      parseSignup(valid),
-      "https://script.google.com/macros/s/test-deployment/exec",
-      "test-private-key",
-    );
-    globalThis.fetch = async () => Response.json({ ok: false });
-    await assert.rejects(
-      saveToSheet(
-        parseSignup(valid),
-        "https://script.google.com/macros/s/test-deployment/exec",
-        "key",
-      ),
-    );
-    await assert.rejects(
-      saveToSheet(parseSignup(valid), "http://example.com/exec", "key"),
-    );
-  } finally {
-    globalThis.fetch = original;
-  }
+    await saveToSupabase(parseSignup(valid), "https://test.supabase.co", "test-key");
+    globalThis.fetch = async (url, options) => {
+      assert.equal(String(url), "https://test.supabase.co/rest/v1/waitlist_removal_requests");
+      assert.deepEqual(Object.keys(JSON.parse(options?.body as string)).sort(), ["email", "request_id"]);
+      return new Response(null, { status: 201 });
+    };
+    await saveToSupabase(parseSignup({...valid, action: "removal-request"}), "https://test.supabase.co", "key");
+    globalThis.fetch = async () => Response.json({code: "23505"}, {status:409});
+    await saveToSupabase(parseSignup(valid), "https://test.supabase.co", "key");
+    globalThis.fetch = async () => Response.json({code: "42501"}, {status:403});
+    await assert.rejects(saveToSupabase(parseSignup(valid), "https://test.supabase.co", "key"));
+    await assert.rejects(saveToSupabase(parseSignup(valid), "http://example.com", "key"));
+  } finally { globalThis.fetch = original; }
 });

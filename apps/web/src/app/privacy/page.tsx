@@ -34,8 +34,8 @@ export default function Privacy() {
       <p>
         A successful waitlist signup records your email address, platform
         preference (iOS, Android, or both), signup time, consent version, and a
-        random request identifier in our Google Sheet. Removal requests are
-        recorded in a separate tab. If the signup service is unavailable, the
+        random request identifier in our Supabase database. Removal requests are
+        recorded in a separate table. If the signup service is unavailable, the
         form displays an error and does not confirm that an address was saved.
       </p>
       <h2>Why we use it</h2>
@@ -47,7 +47,7 @@ export default function Privacy() {
       </p>
       <h2>Where information goes</h2>
       <p>
-        We use Vercel for website hosting and Google Sheets for waitlist
+        We use Vercel for website hosting and Supabase (EU Ireland region) for waitlist
         records. These providers process information needed to deliver the
         service. This website does not collect symptom records or create a
         medical profile. Provider infrastructure may process information outside
@@ -60,7 +60,7 @@ export default function Privacy() {
         Hosting providers may process technical request logs, including IP
         addresses, according to their own policies. The signup endpoint uses a
         temporary hash of a request’s IP address for in-memory rate limiting; it
-        is not added to the Sheet.
+        is not added to the database.
       </p>
       <h2>Access and retention</h2>
       <p>

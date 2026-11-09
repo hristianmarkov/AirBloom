@@ -42,7 +42,7 @@ export function parseSignup(input: unknown): Signup {
   };
 }
 
-// Short-lived, per-process protection only. The Sheet receiver also enforces a global quota.
+// Short-lived, per-process protection only. Not a distributed rate limiter.
 const buckets = new Map<string, { count: number; until: number }>();
 export function allowRequest(key: string, now = Date.now()) {
   for (const [id, b] of buckets) if (b.until <= now) buckets.delete(id);
@@ -55,34 +55,49 @@ export function allowRequest(key: string, now = Date.now()) {
   return true;
 }
 
-export class SheetWriteError extends Error {
+export class SupabaseWriteError extends Error {
   constructor(public code: string, public details: Record<string, string | number> = {}) {
     super(code);
-    this.name = "SheetWriteError";
+    this.name = "SupabaseWriteError";
   }
 }
 
-export async function saveToSheet(signup: Signup, endpoint: string, secret: string) {
-  let url: URL;
-  try { url = new URL(endpoint); } catch { throw new SheetWriteError("SHEET_INVALID_ENDPOINT"); }
-  if (url.protocol !== "https:" || url.hostname !== "script.google.com" || !/^\/macros\/s\/[^/]+\/exec$/.test(url.pathname))
-    throw new SheetWriteError("SHEET_INVALID_ENDPOINT");
-  let response: Response;
-  try {
-    response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...signup, secret, consentVersion: "beta-v1" }),
-      signal: AbortSignal.timeout(15000), cache: "no-store", redirect: "follow",
-    });
-  } catch (error) {
-    throw new SheetWriteError(error instanceof Error && ["TimeoutError", "AbortError"].includes(error.name) ? "SHEET_TIMEOUT" : "SHEET_NETWORK_ERROR");
+export async function saveToSupabase(
+  signup: Signup,
+  endpoint: string,
+  publishableKey: string,
+) {
+  const url = new URL(endpoint);
+  if (url.protocol !== "https:" || !url.hostname.endsWith(".supabase.co") || url.pathname !== "/" || url.username || url.password || url.search || url.hash)
+    throw new Error("Invalid Supabase endpoint configuration.");
+  const removal = signup.action === "removal-request";
+  url.pathname = `/rest/v1/${removal ? "waitlist_removal_requests" : "waitlist"}`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      apikey: publishableKey,
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(removal ? {
+      email: signup.email,
+      request_id: signup.requestId,
+    } : {
+      email: signup.email,
+      platform: signup.platform,
+      consent: signup.consent,
+      consent_version: "beta-v1",
+      request_id: signup.requestId,
+    }),
+    signal: AbortSignal.timeout(15000),
+    cache: "no-store",
+    redirect: "error",
+  });
+  // Duplicate signups and retried removal requests receive the same acknowledgement.
+  // No public SELECT/UPDATE access is needed and existing preferences are preserved.
+  if (response.status === 409) {
+    const error = await response.json() as { code?: string };
+    if (error.code === "23505") return;
   }
-  if (!response.ok) throw new SheetWriteError("SHEET_HTTP_ERROR", { upstreamStatus: response.status });
-  let result: { ok?: boolean; code?: string };
-  try { result = await response.json(); } catch { throw new SheetWriteError("SHEET_INVALID_RESPONSE"); }
-  if (result?.ok !== true) {
-    const allowed = ["SECRET_NOT_CONFIGURED", "UNAUTHORIZED", "INVALID_REQUEST", "INVALID_EMAIL", "INVALID_REQUEST_ID", "INVALID_ACTION", "INVALID_CONSENT", "LOCK_TIMEOUT", "RATE_LIMITED", "HEADER_MISMATCH", "SHEET_OPERATION_FAILED"];
-    throw new SheetWriteError("SHEET_WRITE_REJECTED", { receiverCode: allowed.includes(result?.code ?? "") ? result.code! : "UNKNOWN" });
-  }
+  if (!response.ok) throw new SupabaseWriteError("SUPABASE_HTTP_ERROR", { upstreamStatus: response.status });
 }

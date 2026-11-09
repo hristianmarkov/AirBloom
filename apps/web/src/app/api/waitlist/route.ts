@@ -1,7 +1,7 @@
 import { getWaitlistConfig } from "@/lib/waitlist-config";
 import { createHash, randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
-import { allowRequest, parseSignup, saveToSheet, SheetWriteError } from "@/lib/waitlist";
+import { allowRequest, parseSignup, saveToSupabase, SupabaseWriteError } from "@/lib/waitlist";
 import { site } from "@/lib/site";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -108,11 +108,11 @@ export async function POST(request: Request) {
     );
   }
   try {
-    await saveToSheet(signup, endpoint, secret);
+    await saveToSupabase(signup, endpoint, secret);
     return NextResponse.json({ ok: true }, { headers: responseHeaders });
   } catch (error) {
-    const code = error instanceof SheetWriteError ? error.code : "SHEET_UNEXPECTED_ERROR";
-    log("waitlist.sheet_write_failed", { code, requestId: signup.requestId, ...(error instanceof SheetWriteError ? error.details : {}) });
+    const code = error instanceof SupabaseWriteError ? error.code : "SUPABASE_UNEXPECTED_ERROR";
+    log("waitlist.supabase_write_failed", { code, requestId: signup.requestId, ...(error instanceof SupabaseWriteError ? error.details : {}) });
     return NextResponse.json(
       { error: "We couldn’t save your request. Please try again in a moment.", code, traceId, revision },
       { status: 502, headers: responseHeaders },

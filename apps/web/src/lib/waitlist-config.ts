@@ -1,4 +1,4 @@
-const keys = ["GOOGLE_SHEETS_WEBHOOK_URL", "GOOGLE_SHEETS_WEBHOOK_SECRET"] as const;
+const keys = ["SUPABASE_URL", "SUPABASE_PUBLISHABLE_KEY"] as const;
 
 // Resolve at request time, using the same lookup for health checks and writes.
 export function getWaitlistConfig(env: Record<string, string | undefined> = process.env) {

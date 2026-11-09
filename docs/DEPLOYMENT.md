@@ -7,9 +7,9 @@ The website is ready for a Vercel project, with `apps/web` as its **Root Directo
 1. Commit and push the reviewed repository to GitHub.
 2. Import `hristianmarkov/FindEase` in your authorized Vercel account, selecting `apps/web` as Root Directory.
 3. Production deployments now select public mode automatically; previews remain demo/non-indexed. Do not set `NEXT_PUBLIC_SITE_MODE=demo` in Production. Leave `SITE_URL` unset to use Vercel's stable production hostname, or set it to your final HTTPS domain. Redeploy after changing the address.
-4. Add `GOOGLE_SHEETS_WEBHOOK_URL` and `GOOGLE_SHEETS_WEBHOOK_SECRET` securely after following `GOOGLE_SHEETS.md`.
+4. Set `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` following `SUPABASE_WAITLIST.md`.
 5. For a public release, verify that Deployment Protection is disabled for the production domain so visitors and search engines can reach it. Restrict internal previews separately if desired.
-6. Verify homepage, both articles, `/privacy`, app-store dialogs, and an actual Sheet write in the deployed environment.
+6. Verify homepage, both articles, `/privacy`, app-store dialogs, and an actual Supabase write in the deployed environment.
 
 The tagged service plugins were not exposed as callable tools during initial implementation. Deployment and connection status for the current release is recorded in `LAUNCH_STATUS.md`. Git operations can use the platform's existing HTTPS proxy without a separate token. Vercel account credentials, when needed, must be supplied securely rather than in chat.
 
@@ -28,7 +28,7 @@ The default internal demo intentionally cannot be indexed. Public launch is a se
 
 ## Supabase and future mobile app
 
-The marketing site needs no Supabase credentials and will continue running independently of the future app backend. The supplied plan uses **Flutter for iOS/Android**, and **Supabase for Auth, Postgres, private Storage, and server-side jobs**. That is retained in this architecture.
+The marketing waitlist uses insert-only Supabase access; see `SUPABASE_WAITLIST.md`. The future mobile backend remains separate. The supplied plan uses **Flutter for iOS/Android**, and **Supabase for Auth, Postgres, private Storage, and server-side jobs**. That is retained in this architecture.
 
 An initial configuration and profile migration are provided in `infrastructure/supabase`. They have **not** been applied or tested against a running Supabase project. Authentication signup is disabled in the local configuration until the app's consent and identity flow is designed. Profiles enforce `auth.uid() = id` on all user operations and deny anonymous access.
 
