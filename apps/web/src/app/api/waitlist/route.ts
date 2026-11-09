@@ -3,7 +3,21 @@ import { NextResponse } from "next/server";
 import { allowRequest, parseSignup, saveToSheet } from "@/lib/waitlist";
 import { site } from "@/lib/site";
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 const headers = { "Cache-Control": "no-store" };
+
+// Report configuration presence only; never expose values or accept writes via GET.
+export async function GET() {
+  const missing = [
+    "GOOGLE_SHEETS_WEBHOOK_URL",
+    "GOOGLE_SHEETS_WEBHOOK_SECRET",
+  ].filter((key) => !process.env[key]?.trim());
+  return NextResponse.json(
+    { configured: missing.length === 0, missing, revision: process.env.VERCEL_GIT_COMMIT_SHA ?? "local" },
+    { status: missing.length ? 503 : 200, headers },
+  );
+}
+
 export async function POST(request: Request) {
   const origin = request.headers.get("origin");
   const allowed = new Set([new URL(request.url).origin]);
