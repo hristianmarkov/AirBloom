@@ -6,12 +6,16 @@ The website is hosted on Vercel at https://findease.vercel.app. Project `findeas
 
 The marketing improvements are described in `MARKETING_REVIEW.md`. Fictional endorsements have been removed entirely. Public builds permit indexing and preview builds remain non-indexed. All mobile screens are labeled as concepts using fictional data.
 
-## Signup blocker
+## Supabase waitlist — November 9, 2026
 
-The Google Drive connector verified access to the requested Sheet and prepared its original gid 0 as **Waitlist**, with the five required headers. Vercel currently has no environment variables. The Sheet-bound Apps Script receiver still needs owner-authorized deployment, followed by `GOOGLE_SHEETS_WEBHOOK_URL` and `GOOGLE_SHEETS_WEBHOOK_SECRET` in Vercel and a redeployment. See `GOOGLE_SHEETS.md`.
+The waitlist now uses the FindEase Supabase project (`nzxilhynyjdhtadkniml`, EU Ireland). The `create_marketing_waitlist` migration created RLS-protected `waitlist` and `waitlist_removal_requests` tables. Vercel Production, Preview, and Development have `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` configured. Google Sheets receives no new writes; existing Sheet records were not migrated.
 
-The Drive connector cannot deploy Apps Script, and browser access failed. No end-to-end Google signup write has been verified. Production submissions return HTTP 503 until configuration exists; the form does not pretend to save an address. Do not begin paid acquisition until this flow is verified.
+Code commit `77cb318` deployed to production and reached READY. The live `/api/waitlist` health check returned HTTP 200, `configured: true`, `missing: []`, and the matching commit revision.
 
 ## Validation
 
-Production build and TypeScript passed; 12 unit tests and 16 desktop/mobile browser tests passed. The browser tests verify the UI, request payloads, success/error rendering with mocks, and the real unconfigured API. Five 3× app concept screenshots were captured. No released mobile app, clinical effectiveness, search indexing result, or real-user performance result is claimed.
+15 unit tests passed and the production build with TypeScript passed. Transactional database tests inserted both a signup and a removal request as the anonymous role, then rolled back the test rows. Permission checks confirmed anonymous and signed-in roles cannot read signup records and anonymous clients cannot update them. Unit tests exercise duplicate acknowledgement, removal payloads, rejected writes, and redacted diagnostics.
+
+Eight focused desktop/mobile browser tests passed for platform payloads, success/error rendering, and removal UI using mocked responses. A live browser-to-Vercel-to-Supabase submission remains unverified: the cloud network policy denies outbound access to the project API and browser automation could not connect.
+
+Supabase advisors reported two pre-existing warnings for the provider-created `public.rls_auto_enable()` event-trigger function's execute grants; no waitlist-table warnings were reported. The function was not changed as part of this integration.

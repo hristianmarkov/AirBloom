@@ -84,7 +84,7 @@ test("waitlist failure preserves entered email and never claims success", async 
   await page.route("**/api/waitlist", (route) =>
     route.fulfill({
       status: 502,
-      json: { error: "The sheet is unavailable. Please try again." },
+      json: { error: "The waitlist is unavailable. Please try again." },
     }),
   );
   await page
@@ -92,14 +92,14 @@ test("waitlist failure preserves entered email and never claims success", async 
     .getByRole("button", { name: "Join the waitlist" })
     .click();
   await expect(page.getByRole("dialog").getByRole("alert")).toContainText(
-    "sheet is unavailable",
+    "waitlist is unavailable",
   );
   await expect(page.getByLabel("Email address")).toHaveValue(
     "tester@example.com",
   );
   await expect(page.getByText("Here’s to clearer days.")).toHaveCount(0);
 });
-test("real unconfigured API reports its state; bad origins and invalid consent fail", async ({
+test("real API reports configuration; bad origins and invalid consent fail", async ({
   request,
 }) => {
   const body = {
@@ -108,17 +108,10 @@ test("real unconfigured API reports its state; bad origins and invalid consent f
     consent: true,
     requestId: "12345678-1234-1234-1234-123456789012",
   };
-  const result = await request.post("/api/waitlist", {
-    data: body,
-    headers: { origin: "http://localhost:3000" },
-  });
-  if (publicMode) {
-    expect(result.status()).toBe(503);
-    expect((await result.json()).error).toContain("temporarily unavailable");
-  } else {
-    expect(result.ok()).toBe(true);
-    expect(await result.json()).toEqual({ ok: true, demo: true });
-  }
+  const result = await request.get("/api/waitlist");
+  const health = await result.json();
+  expect(result.status()).toBe(health.configured ? 200 : 503);
+  expect(health.configured).toBe(health.missing.length === 0);
   expect(
     (
       await request.post("/api/waitlist", {
