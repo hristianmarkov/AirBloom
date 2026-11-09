@@ -1,0 +1,18 @@
+{
+  "name": "sinus-companion",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @sinus/web",
+    "build": "npm run build --workspace @sinus/web",
+    "start": "npm run start --workspace @sinus/web",
+    "typecheck": "npm run typecheck --workspace @sinus/web",
+    "test": "npm run test --workspace @sinus/web",
+    "test:e2e": "npm run test:e2e --workspace @sinus/web"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
