@@ -10,27 +10,40 @@ const REMOVAL_HEADERS = ['Email', 'Requested at (UTC)', 'Request ID', 'Status'];
 
 function doPost(e) {
   let locked = false;
+  let stage = 'parse';
+  let requestId = null;
+  function reject(code) {
+    console.error(JSON.stringify({ event: 'waitlist.receiver_failed', code, stage, requestId }));
+    return reply_({ ok: false, code });
+  }
   const lock = LockService.getScriptLock();
   try {
-    if (!e || !e.postData || e.postData.contents.length > 4096) return reply_({ ok: false });
+    if (!e || !e.postData || e.postData.contents.length > 4096) return reject('INVALID_REQUEST');
     const body = JSON.parse(e.postData.contents);
     const properties = PropertiesService.getScriptProperties();
+    stage = 'authenticate';
     const secret = properties.getProperty('WAITLIST_SECRET');
-    if (!secret || secret.length < 32 || body.secret !== secret) return reply_({ ok: false });
+    if (!secret || secret.length < 32) return reject('SECRET_NOT_CONFIGURED');
+    if (body.secret !== secret) return reject('UNAUTHORIZED');
+    stage = 'validate';
     const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
-    if (email.length > 254 || !/^[a-z0-9.!#$%&'*+\/?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/i.test(email) || /^[=+\-@]/.test(email)) return reply_({ ok: false });
-    if (typeof body.requestId !== 'string' || !/^[a-zA-Z0-9-]{16,64}$/.test(body.requestId)) return reply_({ ok: false });
-    if (!['signup', 'removal-request'].includes(body.action)) return reply_({ ok: false });
-    if (body.action === 'signup' && (body.consent !== true || body.consentVersion !== 'beta-v1' || !['ios', 'android', 'both'].includes(body.platform))) return reply_({ ok: false });
+    if (email.length > 254 || !/^[a-z0-9.!#$%&'*+\/?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/i.test(email) || /^[=+\-@]/.test(email)) return reject('INVALID_EMAIL');
+    if (typeof body.requestId !== 'string' || !/^[a-zA-Z0-9-]{16,64}$/.test(body.requestId)) return reject('INVALID_REQUEST_ID');
+    if (!['signup', 'removal-request'].includes(body.action)) return reject('INVALID_ACTION');
+    if (body.action === 'signup' && (body.consent !== true || body.consentVersion !== 'beta-v1' || !['ios', 'android', 'both'].includes(body.platform))) return reject('INVALID_CONSENT');
+    requestId = body.requestId;
+    stage = 'lock';
     if (body.website) return reply_({ ok: true });
     locked = lock.tryLock(15000);
-    if (!locked) return reply_({ ok: false });
+    if (!locked) return reject('LOCK_TIMEOUT');
     const cache = CacheService.getScriptCache();
     const hour = new Date().toISOString().slice(0, 13);
     const count = Number(cache.get(hour) || 0);
-    if (count >= 240) return reply_({ ok: false });
+    if (count >= 240) return reject('RATE_LIMITED');
     cache.put(hour, String(count + 1), 3600);
+    stage = 'open_spreadsheet';
     const book = SpreadsheetApp.openById(properties.getProperty('SHEET_ID') || DEFAULT_SHEET_ID);
+    stage = 'write_row';
     if (body.action === 'removal-request') {
       const sheet = getSheet_(book, 'Removal requests', REMOVAL_HEADERS);
       const prior = findEmail_(sheet, email);
@@ -45,11 +58,13 @@ function doPost(e) {
         if (previousPlatform !== body.platform) sheet.getRange(prior.getRow(), 2).setValue('both');
       }
     }
+    stage = 'flush';
     SpreadsheetApp.flush();
+    console.info(JSON.stringify({ event: 'waitlist.receiver_saved', requestId }));
     return reply_({ ok: true });
-  } catch (_) {
-    // Do not log email addresses, payloads, or secrets.
-    return reply_({ ok: false });
+  } catch (error) {
+    // Log only fixed codes and stages; Google's exception may contain private data.
+    return reject(error && error.message === 'HEADER_MISMATCH' ? 'HEADER_MISMATCH' : stage === 'parse' ? 'INVALID_REQUEST' : 'SHEET_OPERATION_FAILED');
   } finally {
     if (locked) lock.releaseLock();
   }
@@ -61,7 +76,7 @@ function getSheet_(book, name, headers) {
     sheet.appendRow(headers); sheet.setFrozenRows(1);
   } else {
     const existing = sheet.getRange(1, 1, 1, headers.length).getValues()[0];
-    if (headers.some((h, i) => existing[i] !== h)) throw new Error('Unexpected sheet headers; preserve existing data.');
+    if (headers.some((h, i) => existing[i] !== h)) throw new Error('HEADER_MISMATCH');
   }
   return sheet;
 }

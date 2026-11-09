@@ -55,28 +55,34 @@ export function allowRequest(key: string, now = Date.now()) {
   return true;
 }
 
-export async function saveToSheet(
-  signup: Signup,
-  endpoint: string,
-  secret: string,
-) {
-  const url = new URL(endpoint);
-  if (
-    url.protocol !== "https:" ||
-    url.hostname !== "script.google.com" ||
-    !/^\/macros\/s\/[^/]+\/exec$/.test(url.pathname)
-  )
-    throw new Error("Invalid Google Sheets endpoint configuration.");
-  const response = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...signup, secret, consentVersion: "beta-v1" }),
-    signal: AbortSignal.timeout(15000),
-    cache: "no-store",
-    redirect: "follow",
-  });
-  if (!response.ok) throw new Error("Google Sheets receiver unavailable.");
-  const result = (await response.json()) as { ok?: boolean };
-  if (result.ok !== true)
-    throw new Error("Google Sheets did not confirm the write.");
+export class SheetWriteError extends Error {
+  constructor(public code: string, public details: Record<string, string | number> = {}) {
+    super(code);
+    this.name = "SheetWriteError";
+  }
+}
+
+export async function saveToSheet(signup: Signup, endpoint: string, secret: string) {
+  let url: URL;
+  try { url = new URL(endpoint); } catch { throw new SheetWriteError("SHEET_INVALID_ENDPOINT"); }
+  if (url.protocol !== "https:" || url.hostname !== "script.google.com" || !/^\/macros\/s\/[^/]+\/exec$/.test(url.pathname))
+    throw new SheetWriteError("SHEET_INVALID_ENDPOINT");
+  let response: Response;
+  try {
+    response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...signup, secret, consentVersion: "beta-v1" }),
+      signal: AbortSignal.timeout(15000), cache: "no-store", redirect: "follow",
+    });
+  } catch (error) {
+    throw new SheetWriteError(error instanceof Error && ["TimeoutError", "AbortError"].includes(error.name) ? "SHEET_TIMEOUT" : "SHEET_NETWORK_ERROR");
+  }
+  if (!response.ok) throw new SheetWriteError("SHEET_HTTP_ERROR", { upstreamStatus: response.status });
+  let result: { ok?: boolean; code?: string };
+  try { result = await response.json(); } catch { throw new SheetWriteError("SHEET_INVALID_RESPONSE"); }
+  if (result?.ok !== true) {
+    const allowed = ["SECRET_NOT_CONFIGURED", "UNAUTHORIZED", "INVALID_REQUEST", "INVALID_EMAIL", "INVALID_REQUEST_ID", "INVALID_ACTION", "INVALID_CONSENT", "LOCK_TIMEOUT", "RATE_LIMITED", "HEADER_MISMATCH", "SHEET_OPERATION_FAILED"];
+    throw new SheetWriteError("SHEET_WRITE_REJECTED", { receiverCode: allowed.includes(result?.code ?? "") ? result.code! : "UNKNOWN" });
+  }
 }

@@ -57,3 +57,21 @@ For script updates, deploy a **new version** to the existing deployment so `/exe
 ## Validation boundary
 
 Local tests execute the actual receiver code in a mocked Apps Script environment. They cover authentication, invalid consent, duplicate signup, platform merging, and removal requests. The Google Drive connector has verified access and prepared the Waitlist header row. No real signup has been received: the Apps Script Web App is not deployed/configured, and Vercel currently has no environment variables. The Drive connector cannot deploy Apps Script; the browser connection failed. Owner authorization is needed for the receiver deployment. Local mocked tests do not establish a working production signup flow.
+
+
+## Diagnose a failed signup
+
+The deployed website now reads settings through the same runtime lookup for GET and POST. `GET /api/waitlist` reports only presence and the deployed revision. It does not prove a Google write succeeded.
+
+Failed submissions include `code`, `traceId`, and `revision`. Vercel Runtime Logs contain a matching `waitlist.configuration_missing` or `waitlist.sheet_write_failed` JSON event. Logs include only fixed error codes, missing setting names, upstream HTTP status where available, request IDs, and the deployed revision. Emails, IP addresses, secrets, webhook URLs, payloads, and upstream response bodies are never logged.
+
+- `WAITLIST_CONFIG_MISSING`: Vercel log names the missing setting.
+- `SHEET_INVALID_ENDPOINT`: webhook must be `https://script.google.com/macros/s/.../exec`.
+- `SHEET_HTTP_ERROR`: check `upstreamStatus`; verify the Web App deployment access.
+- `SHEET_INVALID_RESPONSE`: Google returned non-JSON, often a login/error page or the wrong URL.
+- `SHEET_TIMEOUT` / `SHEET_NETWORK_ERROR`: request did not complete.
+- `SHEET_WRITE_REJECTED`: inspect the safe `receiverCode` in Vercel logs.
+
+For receiver-side detail, replace `Code.gs` with the current repository version, then **Deploy → Manage deployments → Edit → Version: New version → Deploy**. Keep the same deployment URL and secret. Updating the editor without deploying a new version does not update `/exec`.
+
+Apps Script **Executions** shows `waitlist.receiver_failed` entries with a fixed code, stage, and authenticated valid request ID. Codes distinguish missing secret, secret mismatch, validation, lock contention, quota, header mismatch, and a spreadsheet operation failure. Exception text is deliberately omitted because it can contain private information. Existing receiver versions still work; they simply return an unknown rejection reason until updated.

@@ -5,6 +5,7 @@ import vm from "node:vm";
 
 function fixture() {
   const tabs = new Map<string, string[][]>();
+  const logs: string[] = [];
   const sheet = (name: string) => ({
     getLastRow: () => tabs.get(name)!.length,
     appendRow: (row: string[]) => tabs.get(name)!.push(row),
@@ -37,6 +38,7 @@ function fixture() {
   });
   let released = 0;
   const context = vm.createContext({
+    console: { error: (message: string) => logs.push(message), info: (message: string) => logs.push(message) },
     LockService: {
       getScriptLock: () => ({
         tryLock: () => true,
@@ -86,7 +88,7 @@ function fixture() {
         }),
       },
     });
-  return { tabs, send, released: () => released };
+  return { tabs, send, logs, released: () => released };
 }
 test("Sheet receiver appends once, merges device preference, preserves consent, and releases locks", () => {
   const f = fixture();
@@ -116,4 +118,14 @@ test("removal requests go into a separate tab, once, without deleting signup evi
     f.tabs.get("Removal requests")![1][3],
     "Pending administrator review",
   );
+});
+
+test("receiver provides fixed error codes and logs no emails or credentials", () => {
+  const f = fixture();
+  assert.equal(f.send({ secret: "invalid" }).code, "UNAUTHORIZED");
+  assert.equal(f.send({ consent: false }).code, "INVALID_CONSENT");
+  f.tabs.set("Waitlist", [["Unexpected"]]);
+  assert.equal(f.send().code, "HEADER_MISMATCH");
+  assert.equal(JSON.parse(f.logs.at(-1)!).stage, "write_row");
+  assert.doesNotMatch(f.logs.join(""), /jamie@example.com|invalid|xxxxxxxx/);
 });

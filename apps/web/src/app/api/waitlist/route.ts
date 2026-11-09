@@ -1,6 +1,7 @@
-import { createHash } from "node:crypto";
+import { getWaitlistConfig } from "@/lib/waitlist-config";
+import { createHash, randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
-import { allowRequest, parseSignup, saveToSheet } from "@/lib/waitlist";
+import { allowRequest, parseSignup, saveToSheet, SheetWriteError } from "@/lib/waitlist";
 import { site } from "@/lib/site";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -8,10 +9,7 @@ const headers = { "Cache-Control": "no-store" };
 
 // Report configuration presence only; never expose values or accept writes via GET.
 export async function GET() {
-  const missing = [
-    "GOOGLE_SHEETS_WEBHOOK_URL",
-    "GOOGLE_SHEETS_WEBHOOK_SECRET",
-  ].filter((key) => !process.env[key]?.trim());
+  const { missing } = getWaitlistConfig();
   return NextResponse.json(
     { configured: missing.length === 0, missing, revision: process.env.VERCEL_GIT_COMMIT_SHA ?? "local" },
     { status: missing.length ? 503 : 200, headers },
@@ -19,6 +17,12 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const traceId = randomUUID();
+  const responseHeaders = { ...headers, "X-Waitlist-Trace-Id": traceId };
+  const revision = process.env.VERCEL_GIT_COMMIT_SHA ?? "local";
+  function log(event: string, details: Record<string, unknown> = {}) {
+    console.error(JSON.stringify({ event, traceId, revision, ...details }));
+  }
   const origin = request.headers.get("origin");
   const allowed = new Set([new URL(request.url).origin]);
   // Next may bind request.url to 0.0.0.0; browsers use the actual Host.
@@ -87,26 +91,31 @@ export async function POST(request: Request) {
     );
   }
   if (signup.website) return NextResponse.json({ ok: true }, { headers });
-  const endpoint = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
-  const secret = process.env.GOOGLE_SHEETS_WEBHOOK_SECRET;
-  if (!endpoint || !secret) {
+  const { endpoint, secret, missing } = getWaitlistConfig();
+  if (missing.length) {
+    log("waitlist.configuration_missing", { missing, requestId: signup.requestId });
     if (site.demo)
       return NextResponse.json({ ok: true, demo: true }, { headers });
     return NextResponse.json(
       {
         error:
           "The waitlist is temporarily unavailable. Please try again later.",
+        code: "WAITLIST_CONFIG_MISSING",
+        traceId,
+        revision,
       },
-      { status: 503, headers },
+      { status: 503, headers: responseHeaders },
     );
   }
   try {
     await saveToSheet(signup, endpoint, secret);
-    return NextResponse.json({ ok: true }, { headers });
-  } catch {
+    return NextResponse.json({ ok: true }, { headers: responseHeaders });
+  } catch (error) {
+    const code = error instanceof SheetWriteError ? error.code : "SHEET_UNEXPECTED_ERROR";
+    log("waitlist.sheet_write_failed", { code, requestId: signup.requestId, ...(error instanceof SheetWriteError ? error.details : {}) });
     return NextResponse.json(
-      { error: "We couldn’t save your request. Please try again in a moment." },
-      { status: 502, headers },
+      { error: "We couldn’t save your request. Please try again in a moment.", code, traceId, revision },
+      { status: 502, headers: responseHeaders },
     );
   }
 }
