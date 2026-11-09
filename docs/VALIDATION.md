@@ -1,5 +1,7 @@
 # Validation — November 9, 2026
 
+Public-release follow-up: 12 unit/configuration/receiver tests and 14 desktop/mobile browser tests passed with the public-mode production build. The source was subsequently pushed to GitHub `main` (`247e572`). See `LAUNCH_STATUS.md` for current external blockers. The results below also retain the initial internal-demo validation context.
+
 ## Passed in this workspace
 
 - `npm test`: **8 tests passed**, none skipped. Runs input-validation and rate-limit checks, confirmed/failing Sheet responses, and the actual Apps Script receiver against a mocked Sheets API. Checks authentication, consent, duplicates, combined platform preferences, and removal requests.
@@ -16,7 +18,7 @@
 - No real email was written to the Google Sheet. Requires the owner-authorized Apps Script deployment and two server environment variables; see `GOOGLE_SHEETS.md`. The current cloud network also denies Google API access. Local receiver mocks are not proof of a real write.
 - No Vercel project/deployment or Supabase project was provisioned. The tagged service tools were not callable. Deployment settings and the initial Supabase profile migration are source artifacts only.
 - The Supabase migration has not been executed against a database, and mobile apps have not been built. These are future work.
-- No GitHub push, live-domain search indexing, Search Console submission, real-user performance measurements, or clinical review was performed.
+- No live-domain search indexing, Search Console submission, real-user performance measurements, or clinical review was performed. GitHub publication was completed in the public-release follow-up above.
 
 ## Review images
 
