@@ -30,9 +30,7 @@ export function Footer() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Sinus Companion</span>
-          <span>
-            Personal tracking. Thoughtful conversations. Always your choice.
-          </span>
+          <span>Your day. Your patterns. Your companion.</span>
         </div>
         <p className="health-note">
           Sinus Companion is being developed for personal tracking and
@@ -40,13 +38,6 @@ export function Footer() {
           substitute for professional medical advice. App screens are
           illustrative concepts; features may change.
         </p>
-        {site.demo && (
-          <p className="demo-disclosure">
-            INTERNAL DEMO · Usage statistics, ratings, and testimonials are
-            fictional examples. Not evidence of product adoption or health
-            outcomes.
-          </p>
-        )}
       </div>
     </footer>
   );

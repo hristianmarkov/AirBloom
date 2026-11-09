@@ -12,7 +12,7 @@ export type Article = {
   description: string;
   category: string;
   readTime: number;
-  art: "journal" | "visit";
+  art: "journal" | "visit" | "conditions" | "routine";
   answer: string;
   sections: ArticleSection[];
   sources: { title: string; url: string }[];
@@ -20,9 +20,9 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "how-to-keep-a-sinus-symptom-diary",
-    title: "A sinus symptom diary that fits into real life.",
+    title: "How to keep a sinus symptom diary.",
     description:
-      "What to notice, what to write down, and why a few small entries can help you tell your story.",
+      "Track congestion, pressure, smell, sleep, and daily impact with a simple sinus symptom diary you can keep returning to.",
     category: "Everyday understanding",
     readTime: 5,
     art: "journal",
@@ -98,7 +98,7 @@ export const articles: Article[] = [
   },
   {
     slug: "prepare-for-your-ent-appointment",
-    title: "Your next ENT visit: a little preparation, a clearer conversation.",
+    title: "How to prepare for an ENT appointment.",
     description:
       "A thoughtful checklist to bring your symptoms, routines, and questions into the same conversation.",
     category: "Your care, your conversation",
@@ -185,4 +185,146 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+  "slug": "why-sinus-symptoms-change-day-to-day",
+  "title": "Why do my sinus symptoms change day to day?",
+  "description": "A practical way to track congestion, sleep, outdoor conditions, and routine changes without jumping to conclusions about your triggers.",
+  "category": "Patterns & daily life",
+  "readTime": 5,
+  "art": "conditions",
+  "answer": "A blocked nose or facial pressure can vary for different reasons, and similar symptoms do not always have the same cause. A consistent diary can help you compare your symptoms with sleep, routines, illnesses, and outdoor conditions. Repeated patterns are useful questions to explore; they are not proof of a trigger or a reliable forecast of how you will feel tomorrow.",
+  "sections": [
+    {
+      "id": "start-with-what-you-feel",
+      "title": "Start with the symptoms, not a guess about the cause.",
+      "paragraphs": [
+        "“My sinuses are bad today” can mean different things: a blocked nose, pressure, a change in smell, poor sleep, or several things at once. Give each symptom its own short entry so a single score does not hide the details.",
+        "The NHS lists blocked or runny nose, facial tenderness, and reduced smell among sinusitis symptoms. Allergic rhinitis can also involve a blocked or runny nose. A diary cannot tell you which condition you have."
+      ]
+    },
+    {
+      "id": "compare-like-with-like",
+      "title": "How can I spot useful patterns in my symptom history?",
+      "paragraphs": [
+        "Pick a small set of details and use the same labels each time. For example, rate congestion on waking, then add a separate note about sleep and anything that changed in your normal routine.",
+        "When you look back, compare several recorded days rather than one memorable flare. Keep missing days visible: no entry is not the same as no symptoms."
+      ],
+      "items": [
+        "Record the symptom and time before adding context.",
+        "Separate what happened from what you think caused it.",
+        "Compare days with a similar level of detail.",
+        "Keep uncertainty in the note: “possibly more blocked after the walk.”"
+      ]
+    },
+    {
+      "id": "outdoor-context",
+      "title": "What can pollen and air-quality information tell me?",
+      "paragraphs": [
+        "For people with allergic rhinitis, pollen is one possible allergen; the NHS also lists dust mites, animal dander, and mould. That does not mean all congestion is caused by allergy.",
+        "An air-quality index reports outdoor pollution conditions. It is not a measurement of your nose, a pollen count, or a personalized sinusitis score. Save the location and date alongside any environmental value, and treat it as context for your own record."
+      ]
+    },
+    {
+      "id": "daily-outlook",
+      "title": "Can an app predict how my sinusitis will feel today?",
+      "paragraphs": [
+        "A morning overview can bring your recent entries, current check-in, and local conditions into one place. That is useful context for planning your day, but it is different from a clinically validated personal prediction.",
+        "Sinus Companion’s daily outlook is being designed around this distinction: your own history first, with uncertainty made clear. It will not guarantee a symptom-free day or tell you to change medication because of a forecast."
+      ]
+    },
+    {
+      "id": "make-the-next-step-smaller",
+      "title": "Turn an observation into one useful next step.",
+      "paragraphs": [
+        "Instead of trying to solve every flare at once, write down one question you want to understand. “Does this happen on the days I sleep poorly?” is easier to explore than “What causes everything?”",
+        "Seek professional advice for symptoms that persist, keep returning, or get worse. If you feel very unwell or pain relief does not help, follow local urgent-care advice. Do not wait for a diary pattern before getting help."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "NHS: Sinusitis — symptoms and when to get help",
+      "url": "https://www.nhs.uk/conditions/sinusitis-sinus-infection/"
+    },
+    {
+      "title": "NHS: Allergic rhinitis — symptoms and common allergens",
+      "url": "https://www.nhs.uk/conditions/allergic-rhinitis/"
+    },
+    {
+      "title": "AirNow: What the Air Quality Index measures",
+      "url": "https://www.airnow.gov/aqi/aqi-basics/"
+    }
+  ]
+},
+  {
+  "slug": "sinus-medication-routine-reminders",
+  "title": "A simpler way to remember your sinus medication routine.",
+  "description": "Keep your existing treatment instructions, reminders, and taken-or-missed notes together without letting an app decide your dose.",
+  "category": "Routines & reminders",
+  "readTime": 4,
+  "art": "routine",
+  "answer": "A medication reminder should help you follow the instructions you already have from a clinician, pharmacist, or medicine leaflet. Record the exact product and agreed schedule, use a reminder you can recognize, and distinguish “reminded” from “taken.” An app should not choose a medicine, alter a dose, or invent advice for a missed dose.",
+  "sections": [
+    {
+      "id": "one-reliable-list",
+      "title": "Start with one reliable list.",
+      "paragraphs": [
+        "A routine is harder to follow when instructions are spread across packaging, notes, and memory. Make one list of what you currently use, with the product name and the schedule you were given.",
+        "If you are unsure which product you have or how to use it, check the leaflet or ask a pharmacist. Similar-looking nasal sprays can contain different types of medicine."
+      ],
+      "items": [
+        "Exact product name, with a packaging photo if useful.",
+        "Your existing instructions and who provided them.",
+        "A start date, review date, or stop date when one was given.",
+        "A note of questions to clarify with your pharmacist or clinician."
+      ]
+    },
+    {
+      "id": "reminder-not-prescription",
+      "title": "A reminder is not a prescription.",
+      "paragraphs": [
+        "Choose a reminder label that tells you which existing routine it refers to. Use the timing specified in your treatment instructions; do not change that timing just to fit a notification.",
+        "Sinus Companion’s reminder features are being designed to keep your agreed routine visible. The app will not independently recommend a dose or decide that a symptom score means you need another medicine."
+      ]
+    },
+    {
+      "id": "taken-missed-not-sure",
+      "title": "Keep “taken,” “missed,” and “not sure” separate.",
+      "paragraphs": [
+        "A notification arriving does not mean you used the medicine. Log what actually happened, and leave room for uncertainty rather than filling a gap with a guess.",
+        "If you miss a dose, consult the leaflet for that particular medicine or ask a pharmacist. Do not assume the same missed-dose instruction applies to every spray, tablet, or treatment."
+      ]
+    },
+    {
+      "id": "check-product-specific-limits",
+      "title": "Check limits for the product you actually use.",
+      "paragraphs": [
+        "The NHS warns that decongestant nasal sprays and drops should not be used for more than five days because they can worsen a blocked nose. This warning is specific to decongestants; it is not a general schedule for all nasal products.",
+        "Check the current leaflet and speak with a pharmacist if you are uncertain about a product or if symptoms worsen. A reminder should preserve a review or stop instruction, not silently repeat forever."
+      ]
+    },
+    {
+      "id": "connect-routine-and-history",
+      "title": "Keep your routine beside your symptom history.",
+      "paragraphs": [
+        "A dated record can make it easier to remember when a routine changed and what you noticed afterwards. It can also help you explain what you actually followed, rather than what was intended.",
+        "A change in symptoms after a routine change does not prove the routine caused it. Use the record to ask clearer questions, and keep treatment decisions with your care team."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "NHS: Decongestants — use, limits, and precautions",
+      "url": "https://www.nhs.uk/medicines/decongestants/"
+    },
+    {
+      "title": "NHS: Steroids — types of medicine and safety information",
+      "url": "https://www.nhs.uk/medicines/steroids/"
+    },
+    {
+      "title": "NHS: Sinusitis — treatment and when to get help",
+      "url": "https://www.nhs.uk/conditions/sinusitis-sinus-infection/"
+    }
+  ]
+},
 ];

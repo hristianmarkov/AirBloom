@@ -21,7 +21,7 @@ export default function Screens() {
           justifyContent: "center",
         }}
       >
-        {(["today", "history", "insights", "ask", "report"] as const).map((variant) => (
+        {(["today", "history", "routine", "insights", "ask", "report"] as const).map((variant) => (
           <AppPreview variant={variant} flat key={variant} />
         ))}
       </div>

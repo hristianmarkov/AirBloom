@@ -250,22 +250,22 @@ export function StoreButtons({ light = false }: { light?: boolean }) {
       <button
         className="store-button"
         onClick={() => open("ios")}
-        aria-label="App Store — join the iOS closed-beta waitlist"
+        aria-label="App Store — join the iOS waitlist"
       >
         <AppleIcon />
         <span>
-          <small>Join the iOS beta</small>
+          <small>Get early access on</small>
           <strong>App Store</strong>
         </span>
       </button>
       <button
         className="store-button"
         onClick={() => open("android")}
-        aria-label="Google Play — join the Android closed-beta waitlist"
+        aria-label="Google Play — join the Android waitlist"
       >
         <PlayIcon />
         <span>
-          <small>Join the Android beta</small>
+          <small>Get early access on</small>
           <strong>Google Play</strong>
         </span>
       </button>

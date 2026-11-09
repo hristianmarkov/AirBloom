@@ -5,35 +5,179 @@ import { ArrowRight, Check } from "lucide-react";
 import { AppPreview, type PreviewVariant } from "./app-preview";
 import { JoinButton } from "./waitlist";
 
-const screens: { id: PreviewVariant; label: string; title: string; body: string; points: string[] }[] = [
-  { id: "today", label: "Your day", title: "A check-in, not another chore.", body: "Capture how you feel while it’s fresh. Your recent symptoms and outdoor conditions give you a useful place to start each day.", points: ["Quick morning and evening check-ins", "Optional detail for congestion, pressure, and smell", "Track every day or only when symptoms flare"] },
-  { id: "history", label: "Your history", title: "Remember the details. See the bigger picture.", body: "Was that flare last week or last month? Keep dates, notes, and routine changes on a single timeline you can return to.", points: ["See logged days and gaps clearly", "Mark the start and end of a flare", "Keep care milestones alongside your notes"] },
-  { id: "insights", label: "Your patterns", title: "Turn scattered notes into useful questions.", body: "Look back at what changed in your recorded days. Personal summaries help you explore patterns without mistaking a coincidence for a cause.", points: ["See the records behind a summary", "Follow changes in symptoms and daily impact", "Bring observations to your care team"] },
-  { id: "ask", label: "Your companion", title: "Ask a question. Start with your own story.", body: "The planned AI companion helps organize your history and draft questions for a visit. Review every suggestion before adding or sharing it.", points: ["Summarize the entries you choose", "Turn a thought into a draft diary note", "Prepare questions grounded in your history"] },
-  { id: "report", label: "Your next visit", title: "Make “How have you been?” easier to answer.", body: "Bring a concise ENT Visit Pack built from the details you already recorded. Edit the summary and choose what your clinician sees.", points: ["Symptoms, flare dates, and routines together", "Your questions, ready for the appointment", "Review and remove details before sharing"] },
+const screens: {
+  id: PreviewVariant;
+  label: string;
+  title: string;
+  body: string;
+  points: string[];
+}[] = [
+  {
+    id: "today",
+    label: "Your day",
+    title: "Start the day with a little less guesswork.",
+    body: "Your recent symptoms, local conditions, and daily routine, together. The daily outlook we’re building is designed to put your own history to work, so you have more context for the day ahead.",
+    points: [
+      "Check how today compares with your recent days",
+      "Keep air quality and your next reminder in view",
+      "A quick check-in keeps the picture up to date",
+    ],
+  },
+  {
+    id: "history",
+    label: "Your history",
+    title: "Stop trying to remember which day was worse.",
+    body: "That blocked morning. The week your sense of smell changed. The routine you started last month. Keep the details together and see your story without piecing it back together.",
+    points: [
+      "One timeline for symptoms, notes, and routines",
+      "Mark flares and see how long they lasted",
+      "Track every day or only when you need to",
+    ],
+  },
+  {
+    id: "routine",
+    label: "Your routines",
+    title: "One less thing to keep in your head.",
+    body: "Keep the medication schedule and care routine you already follow in view. Log a treatment when you use it, check back on how you felt, and keep that history beside your symptoms.",
+    points: [
+      "Reminders for the times you choose",
+      "Log ‘used now’ or add a treatment from earlier",
+      "Compare symptoms over time and follow your prescribed directions",
+    ],
+  },
+  {
+    id: "insights",
+    label: "Your patterns",
+    title: "Find the patterns hiding in ordinary days.",
+    body: "Are mornings harder? What else changed around a flare? Explore your history across symptoms, routines, and daily conditions, with the recorded days behind every observation.",
+    points: [
+      "Compare mornings, evenings, and recent weeks",
+      "Look at symptoms alongside changes in your routine",
+      "Follow the evidence without assuming every link is a cause",
+    ],
+  },
+  {
+    id: "ask",
+    label: "Your companion",
+    title: "A conversation that starts with you.",
+    body: "Less explaining your history from scratch. The AI companion is being designed to draw on the entries you choose to share, explain patterns in plain language, and help you explore practical questions about your day.",
+    points: [
+      "Ask about your own symptoms and recorded routines",
+      "Get context with the relevant entries attached",
+      "Explore everyday tips and questions to discuss with your clinician",
+    ],
+  },
+  {
+    id: "report",
+    label: "Your next visit",
+    title: "And when it’s time to talk, you’re ready.",
+    body: "Your everyday tracking can do more than help you look back. Bring a clear, editable summary to your next appointment, without spending the night before trying to remember everything.",
+    points: [
+      "Symptoms, flare dates, and routines in one summary",
+      "Keep your important questions close",
+      "Review every detail and choose what to share",
+    ],
+  },
 ];
 
 export function ProductTour() {
   const [selected, setSelected] = useState(0);
   const screen = screens[selected];
-  return <section className="section product-tour" id="app-preview">
-    <div className="container">
-      <div className="section-heading centered">
-        <span className="eyebrow">TAKE A LOOK INSIDE</span>
-        <h2>Less to keep in your head.<br /><em>More to bring to your care.</em></h2>
-        <p>Five connected spaces, built around the moments that matter.</p>
+
+  function selectTab(index: number) {
+    setSelected(index);
+    document.getElementById(`tab-${screens[index].id}`)?.focus();
+  }
+
+  return (
+    <section className="section product-tour" id="app-preview">
+      <div className="container">
+        <div className="section-heading centered">
+          <span className="eyebrow">A CLOSER LOOK AT YOUR COMPANION</span>
+          <h2>
+            Your day. Your patterns.
+            <br />
+            <em>All connected.</em>
+          </h2>
+          <p>
+            See how the app brings everyday sinus care into one calmer place.
+          </p>
+        </div>
+        <div
+          className="tour-tabs"
+          role="tablist"
+          aria-label="Explore app features"
+        >
+          {screens.map((item, index) => (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              id={`tab-${item.id}`}
+              aria-controls="tour-panel"
+              aria-selected={index === selected}
+              tabIndex={index === selected ? 0 : -1}
+              onClick={() => setSelected(index)}
+              onKeyDown={(event) => {
+                const next =
+                  event.key === "ArrowRight"
+                    ? (index + 1) % screens.length
+                    : event.key === "ArrowLeft"
+                      ? (index + screens.length - 1) % screens.length
+                      : event.key === "Home"
+                        ? 0
+                        : event.key === "End"
+                          ? screens.length - 1
+                          : null;
+                if (next !== null) {
+                  event.preventDefault();
+                  selectTab(next);
+                }
+              }}
+            >
+              {String(index + 1).padStart(2, "0")} <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
+        <div
+          className="tour-panel"
+          id="tour-panel"
+          role="tabpanel"
+          aria-labelledby={`tab-${screen.id}`}
+          tabIndex={0}
+        >
+          <div className="tour-visual">
+            <AppPreview key={screen.id} variant={screen.id} flat />
+            <span className="preview-disclosure">
+              Illustrative app preview · example records
+            </span>
+          </div>
+          <div className="tour-copy">
+            <span className="eyebrow">{screen.label}</span>
+            <h3>{screen.title}</h3>
+            <p>{screen.body}</p>
+            <ul>
+              {screen.points.map((point) => (
+                <li key={point}>
+                  <Check size={18} aria-hidden="true" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <JoinButton>
+              Get early access <ArrowRight size={17} />
+            </JoinButton>
+            <p className="tour-note">
+              For iOS & Android. No payment details needed.
+            </p>
+          </div>
+        </div>
+        <p className="tour-status">
+          Sinus Companion is in development. Outlooks and AI features need
+          validation and may change. A companion to your care, not a diagnosis
+          or a prescription.
+        </p>
       </div>
-      <div className="tour-tabs" role="tablist" aria-label="Explore app features">
-        {screens.map((item, index) => <button key={item.id} type="button" role="tab" id={`tab-${item.id}`} aria-controls="tour-panel" aria-selected={index === selected} tabIndex={index === selected ? 0 : -1} onClick={() => setSelected(index)} onKeyDown={e => {
-          const next = e.key === "ArrowRight" ? (index + 1) % screens.length : e.key === "ArrowLeft" ? (index + screens.length - 1) % screens.length : e.key === "Home" ? 0 : e.key === "End" ? screens.length - 1 : null;
-          if (next !== null) { e.preventDefault(); setSelected(next); document.getElementById(`tab-${screens[next].id}`)?.focus(); }
-        }}>{String(index + 1).padStart(2, "0")} <span>{item.label}</span></button>)}
-      </div>
-      <div className="tour-panel" id="tour-panel" role="tabpanel" aria-labelledby={`tab-${screen.id}`}>
-        <div className="tour-visual"><AppPreview key={screen.id} variant={screen.id} flat /><span className="preview-disclosure">Product concept · all records are fictional</span><a className="preview-download" href={`/app-previews/${screen.id}.png`} target="_blank" rel="noreferrer">View full-size screen ↗</a></div>
-        <div className="tour-copy"><span className="eyebrow">{screen.label}</span><h3>{screen.title}</h3><p>{screen.body}</p><ul>{screen.points.map(point => <li key={point}><Check size={18} />{point}</li>)}</ul><JoinButton>Help shape the app <ArrowRight size={17} /></JoinButton><p className="tour-note">Join the closed-beta waitlist. No payment details needed.</p></div>
-      </div>
-      <p className="tour-status">A preview of the app we’re building. Features may change during beta. Sinus Companion supports tracking and visit preparation; it does not diagnose or prescribe treatment.</p>
-    </div>
-  </section>;
+    </section>
+  );
 }

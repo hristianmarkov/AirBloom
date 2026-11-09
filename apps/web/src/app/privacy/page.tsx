@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Waitlist privacy notice",
   description:
-    "What the Sinus Companion beta waitlist collects, why, and how to request removal.",
+    "What the Sinus Companion early-access waitlist collects, why, and how to request removal.",
   alternates: { canonical: "/privacy" },
 };
 export default function Privacy() {
@@ -16,9 +16,9 @@ export default function Privacy() {
         <br />
         <em>about privacy.</em>
       </h1>
-      <p>Beta waitlist notice · Updated November 9, 2026</p>
+      <p>Early-access waitlist notice · Updated November 9, 2026</p>
       <p>
-        This website and beta waitlist are operated by {site.operator}. For
+        This website and early-access waitlist are operated by {site.operator}. For
         privacy questions, access, correction, or removal, contact{" "}
         <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
       </p>
@@ -26,7 +26,7 @@ export default function Privacy() {
         <span>THE SHORT VERSION</span>
         <p>
           This marketing site asks for an email address and device preference to
-          help organize closed-beta invitations. Please don’t submit symptoms,
+          help organize early-access invitations. Please don’t submit symptoms,
           medical details, or other sensitive information.
         </p>
       </div>
@@ -40,7 +40,7 @@ export default function Privacy() {
       </p>
       <h2>Why we use it</h2>
       <p>
-        We use your consent to contact you about beta access and organize
+        We use your consent to contact you about early access and organize
         invitations for your device. Joining the waitlist is optional and is not
         an agreement to receive unrelated marketing. We do not sell waitlist
         addresses.
@@ -85,7 +85,7 @@ export default function Privacy() {
       </p>
       <h2>Your choices and rights</h2>
       <p>
-        You can withdraw consent to beta emails at any time by requesting
+        You can withdraw consent to access emails at any time by requesting
         removal. Depending on your location, you may also have rights to access,
         correct, erase, restrict, or receive a copy of your information, and to
         complain to your local data-protection authority. Contact{" "}

@@ -18,12 +18,12 @@ try {
     waitUntil: "networkidle",
   });
   await page.evaluate(() => document.fonts.ready);
-  for (const variant of ["today", "history", "insights", "ask", "report"]) {
+  for (const variant of ["today", "history", "routine", "insights", "ask", "report"]) {
     await page
       .locator(`.phone-${variant}`)
       .screenshot({ path: path.join(output, `${variant}.png`) });
   }
-  console.log("Saved five app concept screenshots to public/app-previews.");
+  console.log("Saved six app concept screenshots to public/app-previews.");
 } finally {
   await browser.close();
 }

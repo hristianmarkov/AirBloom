@@ -23,7 +23,7 @@ export function Header() {
             How it works
           </Link>
           <Link onClick={() => setOpen(false)} href="/#features">
-            Made for you
+            The app
           </Link>
           <Link onClick={() => setOpen(false)} href="/journal">
             The journal

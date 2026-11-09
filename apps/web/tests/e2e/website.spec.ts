@@ -8,7 +8,7 @@ test("homepage renders search-readable content, FAQ, and no horizontal overflow"
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
   await expect(page).toHaveTitle(/Sinus Companion/);
-  await expect(page.locator("h1")).toContainText("Know your patterns.");
+  await expect(page.locator("h1")).toContainText("Sinusitis takes enough.");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     "content",
     publicMode ? /^index, follow$/ : /noindex/,
@@ -135,6 +135,8 @@ test("both articles have an answer, source links, canonical, and Article schema"
   for (const slug of [
     "how-to-keep-a-sinus-symptom-diary",
     "prepare-for-your-ent-appointment",
+    "why-sinus-symptoms-change-day-to-day",
+    "sinus-medication-routine-reminders",
   ]) {
     await page.goto(`/journal/${slug}`);
     await expect(page.locator("article")).toBeVisible();

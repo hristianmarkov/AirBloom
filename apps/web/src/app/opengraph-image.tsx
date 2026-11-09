@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-export const alt = "Sinus Companion — A little clarity. More room for life.";
+export const alt = "Sinus Companion — Less sinus guesswork. More living.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function Image() {
@@ -24,18 +24,18 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           fontFamily: "serif",
-          fontSize: 86,
+          fontSize: 76,
           letterSpacing: -3,
           lineHeight: 1.05,
         }}
       >
-        <span>A little clarity.</span>
+        <span>Less sinus guesswork.</span>
         <span style={{ fontStyle: "italic", color: "#6d846d" }}>
-          More room for life.
+          More living.
         </span>
       </div>
       <div style={{ fontSize: 23, marginTop: 42, display: "flex" }}>
-        Your everyday companion for life with sinus symptoms.
+        Your daily outlook. Your patterns. Your companion.
       </div>
       <div
         style={{

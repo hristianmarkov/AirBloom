@@ -3,6 +3,8 @@ import "@fontsource/dm-sans/400.css";
 import "@fontsource/dm-sans/500.css";
 import "@fontsource/dm-sans/600.css";
 import "@fontsource/dm-sans/700.css";
+import "@fontsource/instrument-serif/400.css";
+import "@fontsource/instrument-serif/400-italic.css";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -12,10 +14,12 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Sinus Companion — Sinus Symptom Tracker & ENT Visit Prep",
+    default: "Sinus Companion — Sinusitis Tracker & Daily Support",
     template: "%s | Sinus Companion",
   },
   description: site.description,
+  applicationName: site.name,
+  category: "health",
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -27,7 +31,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
   robots: site.demo
     ? { index: false, follow: false }
-    : { index: true, follow: true },
+    : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 export const viewport: Viewport = { themeColor: "#f8f9f5" };
 export default function RootLayout({

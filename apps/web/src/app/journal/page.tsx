@@ -6,9 +6,9 @@ import { ArticleArt } from "@/components/article-art";
 import { StructuredData } from "@/components/structured-data";
 import { site } from "@/lib/site";
 export const metadata: Metadata = {
-  title: "The journal — Everyday sinus understanding",
+  title: "Sinusitis guides — symptoms, patterns & daily routines",
   description:
-    "Thoughtful guides to sinus symptom tracking and preparing for your next ENT appointment. A little knowledge, more room for you.",
+    "Practical guides to sinus symptom tracking, daily patterns, medication reminders, and making sense of life with recurring congestion.",
   alternates: { canonical: "/journal" },
 };
 export default function Journal() {
@@ -18,9 +18,19 @@ export default function Journal() {
         data={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
+          "@id": `${site.url}/journal#collection`,
           name: "The Sinus Companion Journal",
           url: `${site.url}/journal`,
           description: metadata.description,
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: articles.map((article, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: article.title,
+              url: `${site.url}/journal/${article.slug}`,
+            })),
+          },
         }}
       />
       <div className="journal-header">
@@ -31,12 +41,13 @@ export default function Journal() {
           <em>understand.</em>
         </h1>
         <p>
-          Small, thoughtful reads for life with sinus symptoms. Less overwhelm.
-          A little more perspective.
+          Understand your patterns. Make routines easier to follow. Find
+          practical answers for the days your sinuses get in the way.
         </p>
       </div>
       <span className="journal-label">
-        <BookOpen size={12} /> The everyday collection · 2 guides
+        <BookOpen size={12} /> The everyday collection · {articles.length}{" "}
+        guides
       </span>
       <div className="article-grid journal-list">
         {articles.map((a) => (

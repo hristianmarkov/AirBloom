@@ -26,6 +26,7 @@ export async function generateMetadata({
     alternates: { canonical: `/journal/${a.slug}` },
     openGraph: {
       title: a.title,
+      url: `${site.url}/journal/${a.slug}`,
       description: a.description,
       type: "article",
       publishedTime: "2026-11-09",
@@ -43,14 +44,18 @@ export default async function ArticlePage({
   const { slug } = await params;
   const a = articles.find((a) => a.slug === slug);
   if (!a) notFound();
-  const related = articles.find((b) => b.slug !== slug)!;
+  const related = articles.filter((b) => b.slug !== slug).slice(0, 2);
   return (
     <main id="main" className="container article-page">
       <StructuredData
         data={{
           "@context": "https://schema.org",
           "@type": "Article",
+          "@id": `${site.url}/journal/${a.slug}#article`,
           headline: a.title,
+          articleSection: a.category,
+          abstract: a.answer,
+          citation: a.sources.map((source) => source.url),
           description: a.description,
           datePublished: "2026-11-09",
           dateModified: "2026-11-09",
@@ -61,12 +66,13 @@ export default async function ArticlePage({
           },
           publisher: {
             "@type": "Organization",
-            name: site.name,
+            name: site.operator,
             url: site.url,
           },
           mainEntityOfPage: `${site.url}/journal/${a.slug}`,
           image: `${site.url}/opengraph-image`,
-          inLanguage: "en-US",
+          inLanguage: "en",
+          isAccessibleForFree: true,
         }}
       />
       <StructuredData
@@ -95,7 +101,7 @@ export default async function ArticlePage({
         <ChevronRight size={11} />
         <Link href="/journal">The journal</Link>
         <ChevronRight size={11} />
-        <span>{a.category}</span>
+        <span aria-current="page">{a.title}</span>
       </nav>
       <header className="article-header">
         <div className="article-meta">
@@ -134,13 +140,20 @@ export default async function ArticlePage({
               {s.paragraphs?.map((p) => (
                 <p key={p}>{p}</p>
               ))}
-              {s.items && (
-                <ul>
-                  {s.items.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              )}
+              {s.items &&
+                (s.ordered ? (
+                  <ol>
+                    {s.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ol>
+                ) : (
+                  <ul>
+                    {s.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ))}
               {s.quote && (
                 <blockquote className="article-callout">{s.quote}</blockquote>
               )}
@@ -168,31 +181,52 @@ export default async function ArticlePage({
             <span className="eyebrow">MAKE A LITTLE ROOM FOR YOU</span>
             <h3>Your story, together.</h3>
             <p>
-              We’re building a calmer way to record your days and prepare for
-              your next conversation.
+              Put your symptoms, personal patterns, and medication routines in
+              one place. Get early access to Sinus Companion.
             </p>
             <JoinButton>
-              Join the closed beta <ArrowRight size={16} />
+              Get early access <ArrowRight size={16} />
             </JoinButton>
           </div>
         </article>
-        <aside className="article-product" aria-label="Discover Sinus Companion">
+        <aside
+          className="article-product"
+          aria-label="Discover Sinus Companion"
+        >
           <span className="eyebrow">FROM READING TO REMEMBERING</span>
-          <h2>Your symptoms.<br />A clearer story.</h2>
-          <p>Keep the details that matter between appointments.</p>
-          <div className="sidebar-preview"><AppPreview variant="insights" flat /></div>
-          <ul><li>Quick symptom check-ins</li><li>Flare and routine history</li><li>An editable ENT Visit Pack</li></ul>
+          <h2>
+            Your symptoms.
+            <br />A clearer story.
+          </h2>
+          <p>
+            Less guesswork about your day. More context from your own history.
+          </p>
+          <div className="sidebar-preview">
+            <AppPreview variant="insights" flat />
+          </div>
+          <ul>
+            <li>Daily symptom outlooks</li>
+            <li>Patterns from your own history</li>
+            <li>Medication routine reminders</li>
+            <li>An AI companion with context</li>
+          </ul>
           <StoreButtons />
-          <p className="sidebar-note">Planned for iOS & Android. Both buttons open the closed-beta signup.</p>
-          <span className="preview-disclosure">App concept · fictional records</span>
+          <p className="sidebar-note">
+            Coming to iOS & Android. Join the early-access waitlist.
+          </p>
+          <span className="preview-disclosure">
+            App concept · fictional records
+          </span>
         </aside>
       </div>
       <div className="related-reading">
         <span>A LITTLE MORE TO EXPLORE</span>
-        <Link href={`/journal/${related.slug}`}>
-          {related.title}
-          <ArrowUpRight size={24} />
-        </Link>
+        {related.map((article) => (
+          <Link key={article.slug} href={`/journal/${article.slug}`}>
+            {article.title}
+            <ArrowUpRight size={24} />
+          </Link>
+        ))}
       </div>
     </main>
   );

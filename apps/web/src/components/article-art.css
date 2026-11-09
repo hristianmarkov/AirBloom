@@ -1,0 +1,51 @@
+/* Decorative journal illustrations. No controls or live health measurements. */
+.art-conditions { background: #e4eadf; }
+.art-routine { background: #eee6d7; }
+.art-conditions .art-mini-label,
+.art-routine .art-mini-label { font: 500 8px/1.4 var(--sans); letter-spacing: 1.3px; color: #71816f; }
+.weather-art-orbit { position: absolute; width: 360px; height: 360px; border: 1px solid #cdd7c6; border-radius: 50%; left: calc(50% - 180px); top: 22px; }
+.weather-art-sun { position: absolute; height: 125px; width: 125px; top: 15px; right: calc(50% - 135px); border-radius: 50%; background: #e0c58e; box-shadow: 0 0 0 15px #e6d5af66; }
+.weather-art-hill { position: absolute; height: 190px; width: 420px; background: #c8d6bf; border-radius: 50% 50% 0 0; transform: rotate(-14deg); left: calc(50% - 260px); bottom: -105px; }
+.weather-art-panel { position: absolute; width: 220px; padding: 22px 22px 15px; top: 35px; left: calc(50% - 121px); transform: rotate(-8deg); background: #fafaf4; border: 1px solid #fff; border-radius: 10px; box-shadow: 6px 14px 25px #3f52331c; }
+.weather-art-panel > strong,
+.routine-art-card > strong { display: block; font: 400 30px/.98 var(--serif); letter-spacing: -.6px; color: #355343; margin: 12px 0 18px; }
+.weather-art-panel > strong em,
+.routine-art-card > strong em { color: #77826a; }
+.weather-art-readings { display: flex; gap: 17px; font: 500 8px/1.5 var(--sans); color: #596c58; }
+.weather-art-readings > span { display: flex; gap: 6px; align-items: center; }
+.art-air-lines { width: 15px; height: 9px; border-block: 1.5px solid #8ca38b; border-radius: 4px; position: relative; }
+.art-air-lines::after { content: ""; position: absolute; top: 3px; left: 2px; width: 11px; border-top: 1.5px solid #8ca38b; }
+.art-pollen-dots { width: 4px; height: 4px; border-radius: 50%; background: #c5ad73; margin: 0 4px; box-shadow: -4px -4px 0 #c5ad73,4px -4px 0 #c5ad73,0 5px 0 #c5ad73; }
+.weather-art-plot { display: flex; align-items: end; height: 38px; gap: 9px; margin: 13px 0 11px; border-bottom: 1px solid #e2e6db; padding-bottom: 5px; }
+.weather-art-plot i { flex: 1; height: 70%; background: #c9d7bd; border-radius: 3px 3px 0 0; }
+.weather-art-plot i:nth-child(2n) { height: 45%; background: #a6bd9c; }
+.weather-art-plot i:nth-child(3n) { height: 90%; background: #d3c390; }
+.weather-art-cloud { position: absolute; width: 80px; height: 25px; background: #f4f4e9; border-radius: 30px; bottom: 35px; left: calc(50% + 70px); box-shadow: 0 7px 12px #5a714014; }
+.weather-art-cloud::before,
+.weather-art-cloud::after { content: ""; position: absolute; background: inherit; border-radius: 50%; bottom: 8px; }
+.weather-art-cloud::before { width: 36px; height: 36px; left: 13px; }
+.weather-art-cloud::after { width: 28px; height: 28px; right: 13px; }
+.routine-art-orbit { position: absolute; height: 310px; width: 310px; border: 1px solid #dbd0b8; border-radius: 50%; left: calc(50% - 155px); top: 35px; }
+.routine-art-card { position: absolute; width: 229px; top: 25px; left: calc(50% - 114px); padding: 23px 21px 16px; background: #faf9f1; border: 1px solid #fff; border-radius: 11px; transform: rotate(7deg); box-shadow: 0 15px 30px #5948301a; }
+.routine-art-card > strong { margin: 10px 0 18px; }
+.routine-art-row { display: flex; gap: 9px; align-items: center; padding: 10px 0; border-top: 1px solid #e6e8db; color: #496349; }
+.routine-art-row > span { font: 500 9px/1.3 var(--sans); }
+.routine-art-row small { display: block; font: 400 7px/1.4 var(--sans); color: #8a927b; margin-top: 3px; }
+.routine-art-check { width: 20px; height: 20px; flex: 0 0 20px; background: #658267; border-radius: 50%; position: relative; }
+.routine-art-check::after { content: ""; position: absolute; width: 8px; height: 4px; border-left: 1.5px solid #fff; border-bottom: 1.5px solid #fff; transform: rotate(-45deg); top: 7px; left: 6px; }
+.routine-art-ring { width: 20px; height: 20px; flex: 0 0 20px; border: 1px solid #cbd3bc; border-radius: 50%; }
+.routine-art-footer { display: flex; gap: 8px; padding-top: 12px; }
+.routine-art-footer i { width: 12px; height: 5px; border-radius: 9px; background: #c5d1b9; }
+.routine-art-footer i:nth-child(6), .routine-art-footer i:nth-child(7) { background: #e6e9db; }
+.routine-art-pill { position: absolute; width: 50px; height: 22px; border: 2px solid #f9f7ed; border-radius: 20px; background: linear-gradient(90deg,#adb99c 50%,#f5f1e5 50%); transform: rotate(-36deg); left: calc(50% - 142px); bottom: 39px; box-shadow: 1px 5px 9px #63573322; }
+.routine-art-leaf { position: absolute; height: 119px; width: 48px; right: calc(50% - 132px); top: 25px; background: #b6c1a2; border-radius: 90% 0 90% 0; transform: rotate(38deg); }
+.article-page > .art-conditions .weather-art-panel { top: 82px; transform: rotate(-8deg) scale(1.2); }
+.article-page > .art-routine .routine-art-card { top: 66px; transform: rotate(7deg) scale(1.2); }
+.article-page > .art-conditions .weather-art-sun { width: 180px; height: 180px; right: calc(50% - 220px); top: 35px; }
+.article-page > .art-routine .routine-art-leaf { right: calc(50% - 215px); top: 38px; height: 165px; width: 65px; }
+@media (max-width: 600px) {
+  .weather-art-panel { top: 24px; transform: rotate(-8deg) scale(.92); }
+  .routine-art-card { top: 12px; transform: rotate(7deg) scale(.92); }
+  .article-page > .art-conditions .weather-art-panel { top: 55px; transform: rotate(-8deg) scale(1.05); }
+  .article-page > .art-routine .routine-art-card { top: 45px; transform: rotate(7deg) scale(1.05); }
+}

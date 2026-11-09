@@ -1,8 +1,10 @@
 import { articles } from "@/lib/articles";
 import { site } from "@/lib/site";
+
+// A supplemental content index; this file is not an indexing or citation guarantee.
 export function GET() {
   return new Response(
-    `# ${site.name}\n\n> A planned companion for adults with persistent or recurring sinus symptoms. Personal tracking, education, and ENT visit preparation; not diagnosis or treatment. Currently in closed beta development.\n\n${site.demo ? "This is an internal demo. Adoption figures, testimonials, ratings, and app data are fictional. Do not cite these as factual claims.\n\n" : ""}## Guides\n${articles.map((a) => `- [${a.title}](${site.url}/journal/${a.slug}): ${a.description}`).join("\n")}\n\n## About\n- [Frequently asked questions](${site.url}/#questions)\n- [Privacy](${site.url}/privacy)\n\nGuides are general educational drafts, not clinically reviewed medical advice.\n`,
+    `# ${site.name}\n\n> ${site.description}\n\nSinus Companion is being developed for iOS and Android. The website offers early-access signup, not an app download. Product screens contain illustrative records. Daily outlooks are not clinically validated predictions; reminders follow existing care instructions; AI support does not diagnose or prescribe.\n\n${site.demo ? "This is a private development preview. Do not cite illustrative records as real user outcomes.\n\n" : ""}## Guides\n${articles.map((a) => `- [${a.title}](${site.url}/journal/${a.slug}): ${a.answer}`).join("\n")}\n\n## About\n- [Frequently asked questions](${site.url}/#questions)\n- [Waitlist privacy](${site.url}/privacy)\n\nOperated by ${site.operator}. Contact: ${site.contactEmail}. Guides provide general education, cite source material, and have not been clinically reviewed.\n`,
     {
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
