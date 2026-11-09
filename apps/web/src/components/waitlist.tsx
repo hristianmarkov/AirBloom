@@ -133,15 +133,14 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
             </>
           ) : (
             <>
-              <span className="eyebrow">SOMETHING GOOD IS ON ITS WAY</span>
+              <span className="eyebrow">HELP SHAPE SINUS COMPANION</span>
               <h2 id="waitlist-title">
-                Your next chapter,
+                Less remembering.
                 <br />
-                <em>a little clearer.</em>
+                <em>More understanding.</em>
               </h2>
               <p>
-                We’re in closed beta. Leave your email to be first to hear when
-                Sinus Companion is ready for you.
+                Join the closed-beta waitlist for simpler symptom tracking, personal patterns, and better visit preparation. We’ll email you when testing opens for your device.
               </p>
               <form onSubmit={submit}>
                 <label htmlFor="waitlist-email">Email address</label>
@@ -251,22 +250,22 @@ export function StoreButtons({ light = false }: { light?: boolean }) {
       <button
         className="store-button"
         onClick={() => open("ios")}
-        aria-label="Download on the App Store — join the iOS beta waitlist"
+        aria-label="App Store — join the iOS closed-beta waitlist"
       >
         <AppleIcon />
         <span>
-          <small>Download on the</small>
+          <small>Join the iOS beta</small>
           <strong>App Store</strong>
         </span>
       </button>
       <button
         className="store-button"
         onClick={() => open("android")}
-        aria-label="Get it on Google Play — join the Android beta waitlist"
+        aria-label="Google Play — join the Android closed-beta waitlist"
       >
         <PlayIcon />
         <span>
-          <small>GET IT ON</small>
+          <small>Join the Android beta</small>
           <strong>Google Play</strong>
         </span>
       </button>

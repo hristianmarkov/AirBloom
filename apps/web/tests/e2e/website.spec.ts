@@ -8,7 +8,7 @@ test("homepage renders search-readable content, FAQ, and no horizontal overflow"
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
   await expect(page).toHaveTitle(/Sinus Companion/);
-  await expect(page.locator("h1")).toContainText("Your sinuses.");
+  await expect(page.locator("h1")).toContainText("Know your patterns.");
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     "content",
     publicMode ? /^index, follow$/ : /noindex/,
@@ -45,8 +45,8 @@ for (const platform of ["ios", "android"] as const) {
       .getByRole("button", {
         name:
           platform === "ios"
-            ? /Download on the App Store/
-            : /Get it on Google Play/,
+            ? /App Store/
+            : /Google Play/,
       })
       .first();
     await button.click();
@@ -198,3 +198,24 @@ test("privacy removal records requests honestly and navigation works", async ({
     await expect(page).toHaveURL(/\/journal$/);
   }
 });
+
+ test("product tour supports keyboard navigation and blog store buttons select a device", async ({ page }, testInfo) => {
+ await page.goto("/");
+ const tab = page.getByRole("tab", { name: /Your day/ });
+ await tab.focus(); await page.keyboard.press("ArrowRight");
+ await expect(page.getByRole("tab", { name: /Your history/ })).toHaveAttribute("aria-selected", "true");
+ await expect(page.locator(".tour-panel .phone-history")).toBeVisible();
+ await page.goto("/journal/prepare-for-your-ent-appointment");
+ const sidebar = page.getByRole("complementary", { name: "Discover Sinus Companion" });
+ await expect(sidebar).toBeVisible();
+ if (testInfo.project.name === "desktop") {
+ await page.locator(".article-body").scrollIntoViewIfNeeded();
+ expect(await sidebar.evaluate(el => getComputedStyle(el).position)).toBe("sticky");
+ }
+ for (const [name, value] of [[/App Store/, "ios"], [/Google Play/, "android"]] as const) {
+ await sidebar.getByRole("button", { name }).click();
+ await expect(page.getByRole("dialog")).toBeVisible();
+ await expect(page.getByLabel("I’ll use it on")).toHaveValue(value);
+ await page.keyboard.press("Escape");
+ }
+ });

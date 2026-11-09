@@ -6,7 +6,8 @@ import { articles } from "@/lib/articles";
 import { site } from "@/lib/site";
 import { ArticleArt } from "@/components/article-art";
 import { StructuredData } from "@/components/structured-data";
-import { JoinButton } from "@/components/waitlist";
+import { AppPreview } from "@/components/app-preview";
+import { JoinButton, StoreButtons } from "@/components/waitlist";
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
 }
@@ -175,6 +176,16 @@ export default async function ArticlePage({
             </JoinButton>
           </div>
         </article>
+        <aside className="article-product" aria-label="Discover Sinus Companion">
+          <span className="eyebrow">FROM READING TO REMEMBERING</span>
+          <h2>Your symptoms.<br />A clearer story.</h2>
+          <p>Keep the details that matter between appointments.</p>
+          <div className="sidebar-preview"><AppPreview variant="insights" flat /></div>
+          <ul><li>Quick symptom check-ins</li><li>Flare and routine history</li><li>An editable ENT Visit Pack</li></ul>
+          <StoreButtons />
+          <p className="sidebar-note">Planned for iOS & Android. Both buttons open the closed-beta signup.</p>
+          <span className="preview-disclosure">App concept · fictional records</span>
+        </aside>
       </div>
       <div className="related-reading">
         <span>A LITTLE MORE TO EXPLORE</span>

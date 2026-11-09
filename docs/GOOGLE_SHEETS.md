@@ -4,13 +4,13 @@ This setup uses a Sheet-bound Google Apps Script. The website calls it only from
 
 ## 1. Add the receiver
 
-1. Open [your empty waitlist Sheet](https://docs.google.com/spreadsheets/d/1H8JpqxDnDcwEtOUaJMsz3CNsqnLDEZNHk7__8VHA0wo/edit).
+1. Open [your waitlist Sheet](https://docs.google.com/spreadsheets/d/1H8JpqxDnDcwEtOUaJMsz3CNsqnLDEZNHk7__8VHA0wo/edit).
 2. Select **Extensions → Apps Script**. Replace the starter `Code.gs` with `infrastructure/google-sheets/Code.gs` from this repository.
 3. In Project Settings, enable the `appsscript.json` manifest and replace it with `infrastructure/google-sheets/appsscript.json`.
 4. In Project Settings → Script properties, add `WAITLIST_SECRET` with a random secret of at least 32 characters. Generate it with a password manager and save it securely. Use the same value in the website's server environment, never in chat or Git.
 5. The code already targets your Sheet ID. If you later use a different Sheet, set a `SHEET_ID` script property instead of modifying code.
 
-The receiver creates a **Waitlist** tab and **Removal requests** tab when needed. It preserves an existing tab and refuses to write if its headers do not match. It does not alter the original empty Sheet1 tab.
+The receiver creates a **Waitlist** tab and **Removal requests** tab when needed. It preserves an existing tab and refuses to write if its headers do not match. The original empty Sheet1 tab has now been renamed to Waitlist (gid 0), with the required five headers and a frozen header row.
 
 ## 2. Deploy
 
@@ -56,4 +56,4 @@ For script updates, deploy a **new version** to the existing deployment so `/exe
 
 ## Validation boundary
 
-Local tests execute the actual receiver code in a mocked Apps Script environment. They cover authentication, invalid consent, duplicate signup, platform merging, and removal requests. A real Google write was not performed: the available Google credential file contains no usable configuration, Google API access is blocked by the current cloud network policy, and the Google plugin is not callable in this session.
+Local tests execute the actual receiver code in a mocked Apps Script environment. They cover authentication, invalid consent, duplicate signup, platform merging, and removal requests. The Google Drive connector has verified access and prepared the Waitlist header row. No real signup has been received: the Apps Script Web App is not deployed/configured, and Vercel currently has no environment variables. The Drive connector cannot deploy Apps Script; the browser connection failed. Owner authorization is needed for the receiver deployment. Local mocked tests do not establish a working production signup flow.

@@ -11,10 +11,10 @@ import {
   MessageCircle,
   ScanLine,
   Sparkles,
-  Star,
   Wind,
 } from "lucide-react";
 import { AppPreview, TrendChart } from "@/components/app-preview";
+import { ProductTour } from "@/components/product-tour";
 import { ArticleArt } from "@/components/article-art";
 import { BrandMark } from "@/components/icons";
 import { JoinButton, StoreButtons } from "@/components/waitlist";
@@ -50,45 +50,24 @@ export default function Home() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <div className="beta-pill">
-              <span /> A little more ease is on the way{" "}
+              <span /> BUILT FOR LIFE WITH SINUS SYMPTOMS{" "}
               <ArrowUpRight size={13} />
             </div>
             <h1>
-              Your sinuses.
+              Know your patterns.
               <br />
-              <span>A little less</span>
-              <br />
-              <em>on your mind.</em>
+              <em>Own your next visit.</em>
             </h1>
             <p className="hero-description">
-              Meet the everyday companion for life with sinus symptoms.
-              Understand your days, notice your patterns, and make more room for
-              you.
+              Stop piecing together how you felt last week. Track symptoms, see what changes, and bring a clear, personal summary to your next ENT appointment—all in one planned app.
             </p>
+            <JoinButton className="button primary hero-join">Join the closed beta <ArrowRight size={18} /></JoinButton>
             <StoreButtons />
             <div className="hero-availability">
               <span className="status-dot" /> Coming to iOS & Android · Join the
               closed beta
             </div>
-            {site.demo && (
-              <div className="hero-social">
-                <div className="avatar-stack">
-                  <span>JL</span>
-                  <span>AK</span>
-                  <span>MR</span>
-                  <span>SB</span>
-                </div>
-                <div>
-                  <div className="stars">
-                    ★★★★★ <span>4.9/5</span>
-                  </div>
-                  <p>
-                    A little clarity for <strong>12,000+ people</strong>
-                  </p>
-                </div>
-                <span className="demo-tag">DEMO</span>
-              </div>
-            )}
+
           </div>
           <div className="hero-visual">
             <div className="hero-orbit orbit-one" />
@@ -124,7 +103,7 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-caption">
-              <span className="hand-arrow">↗</span> A little support.
+              <ArrowUpRight className="hand-arrow" aria-hidden="true" /> A little support.
               <br />
               Right in your pocket.
             </div>
@@ -133,7 +112,7 @@ export default function Home() {
         <div className="hero-bottom container">
           <span>LESS GUESSWORK. MORE LIVING.</span>
           <a href="#how-it-works">
-            Find your everyday ease <ArrowDown size={14} />
+            See how it works <ArrowDown size={14} />
           </a>
           <span>DESIGNED AROUND YOU</span>
         </div>
@@ -186,10 +165,9 @@ export default function Home() {
               <div className="step-icon">
                 <ScanLine />
               </div>
-              <h3>A little check-in.</h3>
+              <h3>Capture the day in a few taps.</h3>
               <p>
-                How are you feeling? A few simple taps capture today, without
-                making it your whole day.
+                Record congestion, pressure, smell, and how your day feels. Add detail when you want to, or just log a flare.
               </p>
             </div>
             <div>
@@ -199,10 +177,9 @@ export default function Home() {
               <div className="step-icon">
                 <Sparkles />
               </div>
-              <h3>A clearer picture.</h3>
+              <h3>See changes you might forget.</h3>
               <p>
-                See your symptoms, routines, and outdoor conditions together.
-                Notice the story over time.
+                Keep symptoms, routine changes, and flare dates on one timeline. Look back at recorded days instead of relying on memory.
               </p>
             </div>
             <div>
@@ -212,10 +189,9 @@ export default function Home() {
               <div className="step-icon">
                 <Heart />
               </div>
-              <h3>More room for life.</h3>
+              <h3>Walk into your visit prepared.</h3>
               <p>
-                Feel more prepared for your next conversation with your
-                clinician. Then get back to being you.
+                Turn your history into an editable ENT Visit Pack. Choose what to share and keep your most important questions close.
               </p>
             </div>
           </div>
@@ -247,13 +223,12 @@ export default function Home() {
                   <CloudSun size={16} /> YOUR DAILY PICTURE
                 </span>
                 <h3>
-                  Meet your day
+                  Know where you are
                   <br />
-                  <em>with a little clarity.</em>
+                  <em>before the day begins.</em>
                 </h3>
                 <p>
-                  Your check-in, recent symptoms, and local outdoor conditions.
-                  A gentler way to see where you are today.
+                  Start with how you feel now. Keep your recent symptom trend and local air quality together, without searching through separate apps.
                 </p>
                 <span className="text-label">
                   A MOMENT OF YOUR DAY. ALL IN ONE PLACE.
@@ -274,13 +249,12 @@ export default function Home() {
                 <Sparkles size={16} /> YOUR PERSONAL PATTERNS
               </span>
               <h3>
-                The little things
+                See what changed.
                 <br />
-                <em>start to connect.</em>
+                <em>Remember when.</em>
               </h3>
               <p>
-                Bring your history into focus. See the days you logged, the
-                changes you noticed, and what you want to explore.
+                Notice changes in congestion, smell, and daily impact. Explore what happened around a flare or a routine change, with the recorded days behind every summary.
               </p>
               <div className="pattern-widget">
                 <div>
@@ -310,13 +284,12 @@ export default function Home() {
                 <MessageCircle size={16} /> ASK YOUR COMPANION
               </span>
               <h3>
-                A place for your
+                Your history.
                 <br />
-                <em>“I’ve been wondering…”</em>
+                <em>A helpful conversation.</em>
               </h3>
               <p>
-                Explore your records, make sense of your history, and turn your
-                thoughts into questions for your care team.
+                Ask your history a question. The planned AI companion helps summarize your entries and draft questions for your clinician, so you don’t start from a blank page.
               </p>
               <div className="chat-bubble user-bubble">
                 What should I bring up at my next visit?
@@ -343,8 +316,7 @@ export default function Home() {
                   <em>Now you have the words.</em>
                 </h3>
                 <p>
-                  An editable snapshot of your symptoms, routines, and
-                  questions. Your story, ready for a more useful conversation.
+                  Give your clinician more than “it’s been a rough month.” Review a concise summary of your symptoms, flare dates, routines, and questions before you share it.
                 </p>
                 <div className="feature-ticks">
                   <span>
@@ -362,6 +334,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ProductTour />
 
       <section className="care-note">
         <div className="container">
@@ -386,72 +360,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
-      {site.demo && (
-        <section className="section testimonials">
-          <div className="container">
-            <div className="section-heading centered">
-              <span className="eyebrow">A LITTLE LESS ALONE</span>
-              <h2>
-                Real-life feelings.
-                <br />
-                <em>A little everyday difference.</em>
-              </h2>
-              <p>
-                Illustrative stories of the experience we’re building.{" "}
-                <span className="demo-tag">DEMO TESTIMONIALS</span>
-              </p>
-            </div>
-            <div className="testimonial-grid">
-              {[
-                {
-                  quote:
-                    "I used to just say “it’s been a rough month.” Now I can actually show what that looked like.",
-                  name: "Jamie L.",
-                  detail: "Finding the words for their next visit",
-                  initials: "JL",
-                  color: "sage",
-                },
-                {
-                  quote:
-                    "It feels like a little space to check in with myself, without letting my sinuses take over the day.",
-                  name: "Alex K.",
-                  detail: "Making room for the everyday",
-                  initials: "AK",
-                  color: "peach",
-                },
-                {
-                  quote:
-                    "All those little notes in my phone, finally together. That alone makes me feel more prepared.",
-                  name: "Morgan R.",
-                  detail: "Bringing the bigger picture together",
-                  initials: "MR",
-                  color: "lilac",
-                },
-              ].map((t) => (
-                <figure key={t.name} className="testimonial-card">
-                  <div className="stars">★★★★★</div>
-                  <blockquote>“{t.quote}”</blockquote>
-                  <figcaption>
-                    <span className={`person-avatar ${t.color}`}>
-                      {t.initials}
-                    </span>
-                    <div>
-                      <strong>{t.name}</strong>
-                      <span>{t.detail}</span>
-                    </div>
-                    <span className="quote-mark">”</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <p className="testimonial-disclaimer">
-              Fictional personas and quotes for this internal demonstration. No
-              real user endorsements.
-            </p>
-          </div>
-        </section>
-      )}
 
       <section className="section journal-section">
         <div className="container">
@@ -534,7 +442,7 @@ export default function Home() {
             <br />
             <em>your sinus symptoms.</em>
           </h2>
-          <p>Let’s make a little more room for everything else.</p>
+          <p>Help shape a simpler way to track your symptoms and prepare for care. Join the closed-beta waitlist.</p>
           <StoreButtons light />
           <span className="closing-note">
             Coming soon to iOS & Android. Join the closed beta.

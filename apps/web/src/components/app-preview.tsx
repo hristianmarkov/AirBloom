@@ -67,18 +67,20 @@ export function TrendChart({ large = false }: { large?: boolean }) {
   );
 }
 
+export type PreviewVariant = "today" | "history" | "insights" | "ask" | "report";
+
 export function AppPreview({
   variant = "today",
   flat = false,
 }: {
-  variant?: "today" | "insights" | "report";
+  variant?: PreviewVariant;
   flat?: boolean;
 }) {
   return (
     <div
       role="img"
       className={`phone phone-${variant} ${flat ? "flat" : ""}`}
-      aria-label={`Illustrative app concept: ${variant === "today" ? "daily check-in, recent symptom trend, and outdoor air quality" : variant === "insights" ? "personal symptom history and recorded patterns" : "editable ENT visit summary with symptom history and questions"}. All data is fictional.`}
+      aria-label={`Illustrative app concept: ${variant === "today" ? "daily check-in, recent symptom trend, and outdoor air quality" : variant === "history" ? "calendar, recorded flares, and care milestones" : variant === "ask" ? "AI companion drafting visit questions from recorded notes" : variant === "insights" ? "personal symptom history and recorded patterns" : "editable ENT visit summary with symptom history and questions"}. All data is fictional.`}
     >
       <div className="phone-camera" />
       <div className="phone-status">
@@ -169,6 +171,25 @@ export function AppPreview({
               </div>
               <span className="air-number">28</span>
             </div>
+          </>
+        ) : variant === "history" ? (
+          <>
+            <div className="app-top"><span className="app-wordmark"><BrandMark /> your history</span><Plus size={17} /></div>
+            <p className="app-date">EVERY DAY HAS CONTEXT</p><h3>Your month, together.</h3><p className="app-subtitle">The details you don’t have to remember.</p>
+            <div className="history-calendar"><strong>May 2026 <ChevronLeft size={12} /><ChevronRight size={12} /></strong><div className="calendar-grid">{["M", "T", "W", "T", "F", "S", "S"].map((d,i)=><span className="calendar-label" key={`d${i}`}>{d}</span>)}{Array.from({length: 4}, (_,i)=><span key={`blank${i}`} aria-hidden="true" />)}{Array.from({length: 31}, (_,i)=><span key={i} className={i === 17 ? "calendar-selected" : [4,5,6,7].includes(i) ? "calendar-flare" : i < 18 && i % 4 !== 0 ? "calendar-logged" : ""}>{i+1}</span>)}</div><div className="calendar-key">● Logged day <span>● Flare</span> · Blank = unrecorded</div></div>
+            <div className="app-section-heading"><h4>Monday, May 18</h4><span>2 entries</span></div>
+            <div className="timeline-entry"><span>08:10</span><strong>Morning check-in</strong><p>Nose: my usual · Smell: reduced</p></div>
+            <div className="timeline-entry"><span>18:30</span><strong>Evening check-in</strong><p>Overall symptoms: mild</p></div>
+
+          </>
+        ) : variant === "ask" ? (
+          <>
+            <div className="app-top"><span className="app-wordmark"><BrandMark /> your companion</span><MessageCircle size={17} /></div>
+            <p className="app-date">START WITH YOUR OWN STORY</p><h3>What’s on your mind?</h3><p className="app-subtitle">Make more of the history you’ve kept.</p>
+            <div className="preview-chat user">Help me prepare for my ENT visit.</div>
+            <div className="preview-chat assistant"><BrandMark /><p>From your May entries, here are two things you could discuss:</p><strong>Changes in smell</strong><p>You noted reduced smell on May 12 and 18.</p><strong>Your recent flare</strong><p>You marked May 5–8 as a flare.</p><span className="record-source">Based on 6 recorded evenings and 2 notes</span></div>
+            <div className="draft-question"><span>DRAFT VISIT QUESTION</span><p>“What should I record about changes in smell before our next visit?”</p><strong><Plus size={12} /> Review before adding</strong></div>
+            <div className="preview-chat-input">Ask about your records <ArrowUpRight size={15} /></div><p className="chat-safety">AI can make mistakes. Not medical advice.</p>
           </>
         ) : variant === "insights" ? (
           <>
@@ -272,7 +293,7 @@ export function AppPreview({
           <House />
           Today
         </span>
-        <span>
+        <span className={variant === "history" ? "active" : ""}>
           <Activity />
           History
         </span>
@@ -280,7 +301,7 @@ export function AppPreview({
           <Sparkles />
           Insights
         </span>
-        <span>
+        <span className={variant === "ask" ? "active" : ""}>
           <MessageCircle />
           Ask
         </span>
