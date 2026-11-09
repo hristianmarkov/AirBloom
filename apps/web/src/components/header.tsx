@@ -33,7 +33,7 @@ export function Header() {
           </Link>
         </nav>
         <JoinButton className="button nav-cta">
-          Join the waitlist <ArrowUpRight size={17} />
+          Start Now <ArrowUpRight size={17} />
         </JoinButton>
         <button
           className="icon-button mobile-menu"
