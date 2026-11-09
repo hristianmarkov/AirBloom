@@ -16,6 +16,7 @@ import {
   Wind,
 } from "lucide-react";
 import { AppPreview, TrendChart } from "@/components/app-preview";
+import { Testimonials } from "@/components/testimonials";
 import { ProductTour } from "@/components/product-tour";
 import { ArticleArt } from "@/components/article-art";
 import { BrandMark } from "@/components/icons";
@@ -121,17 +122,11 @@ export default function Home() {
               routine on track, and put your own history to work.
             </p>
             <div className="hero-actions">
-              <JoinButton className="button primary hero-join">
-                Get early access <ArrowRight size={18} />
-              </JoinButton>
+              <StoreButtons />
               <a href="#app-preview" className="hero-tour-link">
                 Take a look inside <ArrowDown size={15} />
               </a>
             </div>
-            <p className="hero-availability">
-              <span className="status-dot" /> In development for iOS & Android.
-              Join the waitlist.
-            </p>
             <div className="hero-community"><span className="community-mark"><BrandMark /></span><div><strong>12k+ users</strong><span>One shared goal. More room for life.</span></div></div>
             <div className="hero-promises">
               <span>
@@ -491,90 +486,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section pricing-section" id="plans">
-        <div className="container">
-          <div className="section-heading heading-split">
-            <div>
-              <span className="eyebrow">
-                A LITTLE LESS THAN YOUR NEXT COFFEE
-              </span>
-              <h2>
-                Start with a clearer record.
-                <br />
-                <em>Go deeper when you’re ready.</em>
-              </h2>
-            </div>
-            <p>
-              Our planned launch plans. Join the waitlist today; there’s nothing
-              to pay now.
-            </p>
-          </div>
-          <div className="plan-grid">
-            <div className="plan-card">
-              <span className="plan-name">THE EVERYDAY ESSENTIALS</span>
-              <div className="plan-price">
-                Free<span>to start</span>
-              </div>
-              <p>
-                A place for your symptoms, your routines, and your own story.
-              </p>
-              <ul>
-                {[
-                  "Unlimited symptom & treatment logs",
-                  "Quick daily check-ins & basic reminders",
-                  "Today’s available conditions & simple trends",
-                  "Basic data export & a simple visit summary",
-                ].map((item) => (
-                  <li key={item}>
-                    <Check size={17} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <JoinButton className="button plan-secondary">
-                Get early access <ArrowRight size={16} />
-              </JoinButton>
-            </div>
-            <div className="plan-card plan-premium">
-              <div className="plan-heading">
-                <span className="plan-name">YOUR PERSONAL COMPANION</span>
-                <span className="plan-badge">PREMIUM</span>
-              </div>
-              <div className="plan-price">
-                $3.99<span>/ month</span>
-              </div>
-              <p>
-                Less piecing it together. More understanding what’s personal to
-                you.
-              </p>
-              <ul>
-                {[
-                  "Everything in Free",
-                  "Personal pattern reviews & deeper comparisons",
-                  "Environmental history, where available",
-                  "AI conversations grounded in your records",
-                  "Tailored reminders & an enhanced visit report",
-                ].map((item) => (
-                  <li key={item}>
-                    <Check size={17} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="plan-year">
-                Or $29.99 / year <span>Planned US pricing</span>
-              </div>
-              <JoinButton className="button primary">
-                Join the waitlist <ArrowRight size={16} />
-              </JoinButton>
-            </div>
-          </div>
-          <p className="plan-note">
-            Plans and features are in development and may change before launch.
-            No subscription starts when you join the waitlist.
-          </p>
-        </div>
-      </section>
+      <Testimonials />
 
       <section className="care-note">
         <div className="container">

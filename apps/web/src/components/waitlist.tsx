@@ -254,7 +254,7 @@ export function StoreButtons({ light = false }: { light?: boolean }) {
       >
         <AppleIcon />
         <span>
-          <small>Get early access on</small>
+          <small>For iPhone & iPad</small>
           <strong>App Store</strong>
         </span>
       </button>
@@ -265,7 +265,7 @@ export function StoreButtons({ light = false }: { light?: boolean }) {
       >
         <PlayIcon />
         <span>
-          <small>Get early access on</small>
+          <small>For Android</small>
           <strong>Google Play</strong>
         </span>
       </button>

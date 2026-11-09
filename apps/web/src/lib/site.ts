@@ -47,11 +47,6 @@ export const faqs = [
       "No. AirBloom is designed for personal tracking, education, and understanding your records. It does not diagnose sinusitis, prescribe treatment, or replace professional medical care. Keep following your clinician’s instructions and seek medical advice for persistent or worsening symptoms.",
   },
   {
-    question: "How much will it cost?",
-    answer:
-      "Planned US pricing is Free for core logging, basic reminders, simple trends, and basic export; Premium is planned at $3.99 per month or $29.99 per year for personal pattern reviews, deeper comparisons, AI conversations, tailored reminders, and enhanced reports. Plans may change before launch. Joining the waitlist is free and starts no subscription.",
-  },
-  {
     question: "Is the app available on iPhone and Android?",
     answer:
       "AirBloom is in development for iOS and Android and is not available to download yet. Join the waitlist and choose your device to hear when access opens. The app screens on this website are illustrative previews, not a live medical service.",

@@ -5797,3 +5797,17 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; font-weight: 500; }
  .daily-hero .float-check { bottom: 65px; }
  .hero-community { margin-bottom: 24px; }
 }
+
+.hero-actions > .store-buttons { gap: 10px; }
+.hero-actions { margin-bottom: 25px; }
+.hero-actions .store-button { min-width: 146px; padding: 12px 17px; }
+.community-stories { background: #edf1e7; }
+.community-stories-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; align-items: start; }
+.community-story { margin: 0; padding: 30px; border: 1px solid #dce4d3; background: #f9faf6; border-radius: 17px; }
+.community-story > svg { width: 28px; height: 28px; color: #78916b; }
+.community-story blockquote { margin: 22px 0 28px; font-size: 17px; line-height: 1.75; letter-spacing: -.3px; }
+.community-story figcaption { display: grid; gap: 6px; font-size: 12px; }
+.community-story figcaption strong { font-weight: 600; }
+.community-story figcaption span { color: #68765f; font-size: 11px; }
+@media (max-width:900px) { .community-stories-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width:650px) { .community-stories-grid { grid-template-columns: 1fr; } .hero-actions { gap: 12px; } .hero-actions .store-button { min-width: 140px; padding: 11px 14px; } }
