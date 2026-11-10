@@ -1,0 +1,447 @@
+{
+  "application_commit": "61200c7c4f34924694f50955f685f122a5dc077a",
+  "deployment_id": "dpl_2hYEVLyi5UaRGceiLxpkj6KupFg3",
+  "production_url": "https://www.airbloom.app",
+  "target": "production",
+  "state": "READY",
+  "observed_at": "2026-11-10T23:37:13.828Z",
+  "local_verification": {
+    "unit_tests_passed": 23,
+    "browser_tests_passed": 25,
+    "duplicate_mobile_http_matrices_skipped": 3,
+    "production_build": "passed",
+    "http_acceptance_checks_passed": 479,
+    "http_acceptance_checks_failed": 0
+  },
+  "live_verification": {
+    "checks_passed": 76,
+    "checks_failed": 0,
+    "transport": "Vercel connector",
+    "runtime_error_scan": "No error/fatal groups returned for the new deployment in the requested 1h window.",
+    "checks": [
+      {
+        "check": "/:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app"
+        ]
+      },
+      {
+        "check": "/:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/journal:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/journal"
+        ]
+      },
+      {
+        "check": "/journal:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/journal:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/resources:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/resources:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/resources"
+        ]
+      },
+      {
+        "check": "/resources:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/resources:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/resources:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/sinus-symptom-diary-template:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/journal/sinus-symptom-diary-template:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/journal/sinus-symptom-diary-template"
+        ]
+      },
+      {
+        "check": "/journal/sinus-symptom-diary-template:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/journal/sinus-symptom-diary-template:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/sinus-symptom-diary-template:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/sinus-symptom-summary-for-doctor:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/journal/sinus-symptom-summary-for-doctor:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/journal/sinus-symptom-summary-for-doctor"
+        ]
+      },
+      {
+        "check": "/journal/sinus-symptom-summary-for-doctor:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/journal/sinus-symptom-summary-for-doctor:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/sinus-symptom-summary-for-doctor:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/nasal-spray-log:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/journal/nasal-spray-log:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/journal/nasal-spray-log"
+        ]
+      },
+      {
+        "check": "/journal/nasal-spray-log:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/journal/nasal-spray-log:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/nasal-spray-log:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/sinus-surgery-recovery-diary:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/journal/sinus-surgery-recovery-diary:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/journal/sinus-surgery-recovery-diary"
+        ]
+      },
+      {
+        "check": "/journal/sinus-surgery-recovery-diary:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/journal/sinus-surgery-recovery-diary:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/sinus-surgery-recovery-diary:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/about:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/about:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/about"
+        ]
+      },
+      {
+        "check": "/about:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/about:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/about:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/editorial-policy:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/editorial-policy:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/editorial-policy"
+        ]
+      },
+      {
+        "check": "/editorial-policy:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/editorial-policy:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/editorial-policy:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/authors/airbloom-editorial-team:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/authors/airbloom-editorial-team:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/authors/airbloom-editorial-team"
+        ]
+      },
+      {
+        "check": "/authors/airbloom-editorial-team:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/authors/airbloom-editorial-team:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/authors/airbloom-editorial-team:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/privacy:200",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/privacy:canonical",
+        "passed": true,
+        "observed": [
+          "https://www.airbloom.app/privacy"
+        ]
+      },
+      {
+        "check": "/privacy:one H1",
+        "passed": true,
+        "observed": 1
+      },
+      {
+        "check": "/privacy:no legacy URLs",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/privacy:indexable metadata",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "Sitemap exact public URL set",
+        "passed": true,
+        "observed": {
+          "count": 45,
+          "expected": 45
+        }
+      },
+      {
+        "check": "Journal links to all38 guides",
+        "passed": true,
+        "observed": {
+          "guides": 38
+        }
+      },
+      {
+        "check": "Robots canonical sitemap",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "llms all guide URLs",
+        "passed": true,
+        "observed": 38
+      },
+      {
+        "check": "findease.vercel.app:path and query redirect",
+        "passed": true,
+        "observed": {
+          "status": 308,
+          "location": "https://www.airbloom.app/journal?launch_check=path-preservation",
+          "note": "Connector-injected authentication query parameter omitted from evidence."
+        }
+      },
+      {
+        "check": "airbloom.app:path and query redirect",
+        "passed": true,
+        "observed": {
+          "status": 308,
+          "location": "https://www.airbloom.app/journal?launch_check=path-preservation",
+          "note": "Connector-injected authentication query parameter omitted from evidence."
+        }
+      },
+      {
+        "check": "/journal/this-guide-does-not-exist:status",
+        "passed": true,
+        "observed": 404
+      },
+      {
+        "check": "/journal/this-guide-does-not-exist:noindex",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/journal/this-guide-does-not-exist:no contradictory index",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/demo/screens:status",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/demo/screens:noindex",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/demo/screens:no contradictory index",
+        "passed": true,
+        "observed": true
+      },
+      {
+        "check": "/downloads/sinus-summary-blank.pdf:status",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/downloads/sinus-summary-blank.pdf:noindex copies",
+        "passed": true,
+        "observed": "noindex"
+      },
+      {
+        "check": "/downloads/sinus-symptom-diary.html:status",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/downloads/sinus-symptom-diary.html:noindex copies",
+        "passed": true,
+        "observed": "noindex"
+      },
+      {
+        "check": "/downloads/seven-day-sinus-diary.xlsx:status",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/downloads/seven-day-sinus-diary.xlsx:noindex copies",
+        "passed": true,
+        "observed": "noindex"
+      },
+      {
+        "check": "/opengraph-image:status",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "/api/waitlist:status",
+        "passed": true,
+        "observed": 200
+      },
+      {
+        "check": "Waitlist runtime configured and matching release",
+        "passed": true,
+        "observed": {
+          "configured": true,
+          "revision": "61200c7c4f34924694f50955f685f122a5dc077a"
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Workspace egress denies direct requests to custom host. Vercel connector automatically authenticates; anonymous signed-out access was not independently tested.",
+    "All45pages and41download files passed local HTTP matrix; live connector checked representative pages/file types plus complete sitemap and hub coverage.",
+    "No real signup write, private search-property report, clinical review, field CWV or answer-engine citation is implied."
+  ]
+}

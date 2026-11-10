@@ -36,7 +36,7 @@ For browser tests, install Chromium with `cd apps/web && npx playwright install 
 
 ## Internal-demo mode
 
-Local development and Vercel previews default to demo mode. Vercel production deployments automatically select public mode, unless `NEXT_PUBLIC_SITE_MODE` explicitly overrides it. In demo mode the requested 12,000+ users, 4.9 rating, personas, and testimonials are **fictional**, labeled in the UI, and excluded from structured ratings. Search indexing is disabled and the sitemap is empty.
+Local development and Vercel previews default to demo mode. Vercel production deployments automatically select public mode, unless `NEXT_PUBLIC_SITE_MODE` explicitly overrides it. App concepts use clearly labeled fictional records. Unsupported adoption counts and testimonials are excluded from the homepage. Demo search indexing is disabled and the sitemap is empty.
 
 If Supabase is unconfigured, the form explicitly states that the address was **not saved**. There is no filesystem, browser-storage, or ephemeral server fallback masquerading as a saved signup.
 

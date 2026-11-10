@@ -37,7 +37,7 @@ These are current dependencies, not phased work:
 
 | Task | Concrete next action | Evidence still needed |
 | --- | --- | --- |
-| Production release | Deploy this code to the existing Vercel project; `SITE_URL=https://www.airbloom.app` has been set and apex→www/domain attachment verified | Successful new deployment URL/revision and live acceptance JSON; current live code remains the earlier revision until release |
+| Production release | Application commit `61200c7` deployed to the existing Vercel project and reached READY; canonical origin and both host redirects verified | Complete; evidence and verification limits are recorded below |
 | Search Console | Owner confirms the site is already set up; use authorized access to submit `https://www.airbloom.app/sitemap.xml` and inspect representative URLs | Actual property inspection, submission receipt and selected canonical; browser access is currently blocked |
 | Bing Webmaster Tools | Use an authorized account to verify/import the site and submit the corrected sitemap | Property access, submission result, crawl/index and AI Performance data when available |
 | IndexNow | Configure a domain-controlled key if using the service, then submit changed canonical public URLs | Hosted key verification and actual submission response; no submission is assumed |
@@ -59,11 +59,14 @@ The [prepared native Google Sheets diary](https://docs.google.com/spreadsheets/d
 
 ## Release evidence
 
-- Source implementation: prepared in the current changes; see the repository diff.
+- Source implementation: application commit `61200c7c4f34924694f50955f685f122a5dc077a`, pushed to `hristianmarkov/AirBloom` main.
 - Production environment: www `SITE_URL` set; apex permanent redirect and www domain attachment verified.
-- Deployment revision and URL: pending new release result from the task owner; no claim that the previous live revision contains these changes.
-- Live acceptance report: pending post-deployment run.
+- Production deployment: `dpl_2hYEVLyi5UaRGceiLxpkj6KupFg3` reached READY and assigned `https://www.airbloom.app`. The immutable deployment is `https://airbloom-5p50qpdqj-hristianmarkov-gmailcoms-projects.vercel.app` (preview-host protection may apply).
+- Verification: production build, 23 unit tests and 25 browser tests passed. Three duplicated mobile HTTP matrices were intentionally skipped because they run once on desktop. The complete local HTTP audit passed 479 checks with no failures.
+- Live connector acceptance: 76 checks passed with no failures, including all 45 sitemap URLs and 38 journal links, representative new guides and trust pages, host redirects, PDF/HTML/XLSX downloads, social image, correct 404/noindex behavior, and a configured waitlist health response matching the application revision. [release-evidence.json](seo-aeo/release-evidence.json) records the results. No error/fatal runtime log groups were returned for this deployment in the requested one-hour window.
+- Verification limit: workspace egress denied direct custom-host requests. Live probes used the Vercel connector, which automatically authenticates; anonymous signed-out reachability was not independently tested. Vercel custom-domain settings permit public access. No real signup was written during this SEO change. Local download checks verified all 41 advertised files and their signatures; live probes sampled each relevant file type.
 - Google Search Console: owner confirms setup exists; authenticated inspection/submission blocked by browser-control failure. Bing setup and both sitemap receipts remain pending.
 - Clinical approvals: none supplied or obtained.
 - Native Google Sheets public sharing: pending owner action; private template only.
 - Search, citation and field-performance outcomes: not measured by this source change.
+- Fresh SEO-provider checks returned no usable exact-query SERPs or were blocked when automatic approval review hit the account usage limit. No blocked action was bypassed. This delivery uses the supplied November 10 competitor research; see [research-refresh.json](seo-aeo/research-refresh.json).
