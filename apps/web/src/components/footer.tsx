@@ -18,7 +18,11 @@ export function Footer() {
           <div className="footer-links">
             <Link href="/#features">The app</Link>
             <Link href="/journal">The journal</Link>
+            <Link href="/resources">Free templates</Link>
             <Link href="/#questions">FAQs</Link>
+            <Link href="/about">About</Link>
+            <Link href="/editorial-policy">Editorial policy</Link>
+            <Link href="/authors/airbloom-editorial-team">Our editorial team</Link>
             <Link href="/privacy">Privacy</Link>
             <a href={`mailto:${site.contactEmail}`}>Contact</a>
           </div>

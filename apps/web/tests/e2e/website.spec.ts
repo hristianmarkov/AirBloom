@@ -9,10 +9,11 @@ test("homepage renders search-readable content, FAQ, and no horizontal overflow"
   await page.goto("/");
   await expect(page).toHaveTitle(/AirBloom/);
   await expect(page.locator("h1")).toContainText("Sinusitis takes enough.");
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
-    "content",
-    publicMode ? /^index, follow$/ : /noindex/,
-  );
+  if (publicMode) {
+    await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
+  } else {
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  }
   expect(await page.locator('script[type="application/ld+json"]').count()).toBe(
     2,
   );
@@ -31,8 +32,8 @@ test("homepage renders search-readable content, FAQ, and no horizontal overflow"
   ).toBe(true);
   expect(errors).toEqual([]);
   if (publicMode) {
-    await expect(page.getByText("12,000+ people")).toHaveCount(0);
-    await expect(page.locator(".testimonials")).toHaveCount(0);
+    await expect(page.getByText(/12k\+ users|12,000\+ people/)).toHaveCount(0);
+    await expect(page.locator(".community-stories")).toHaveCount(0);
   }
 });
 
@@ -76,8 +77,7 @@ test("waitlist failure preserves entered email and never claims success", async 
 }) => {
   await page.goto("/");
   await page
-    .getByRole("button", { name: "Join the waitlist", exact: false })
-    .first()
+    .getByRole("banner").getByRole("button", { name: "Start Now", exact: true })
     .click();
   await page.getByLabel("Email address").fill("tester@example.com");
   await page.getByRole("checkbox").check();
@@ -129,7 +129,7 @@ test("real API reports configuration; bad origins and invalid consent fail", asy
     ).status(),
   ).toBe(400);
 });
-test("both articles have an answer, source links, canonical, and Article schema", async ({
+test("representative guides have an answer, source links, canonical, and Article schema", async ({
   page,
 }) => {
   for (const slug of [
@@ -143,7 +143,7 @@ test("both articles have an answer, source links, canonical, and Article schema"
     await expect(page.locator("#quick-answer")).toContainText(
       "THE SHORT ANSWER",
     );
-    expect(await page.locator("#sources a").count()).toBe(3);
+    expect(await page.locator("#sources li a").count()).toBeGreaterThan(0);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       "href",
       new RegExp(slug),

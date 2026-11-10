@@ -1,19 +1,21 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowUpRight, BookOpen } from "lucide-react";
+import { ArrowUpRight, BookOpen, Download } from "lucide-react";
 import { articles } from "@/lib/articles";
-import { ArticleArt } from "@/components/article-art";
+import { JournalBrowser } from "@/components/journal-browser";
 import { StructuredData } from "@/components/structured-data";
 import { site } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Sinusitis guides — symptoms, patterns & daily routines",
+  title: "Sinus symptom guides, diaries & appointment tools",
   description:
-    "Practical guides to sinus symptom tracking, daily patterns, medication reminders, and making sense of life with recurring congestion.",
+    "Practical sinus symptom guides, printable diaries, treatment logs and appointment tools. Understand your records and prepare clearer questions for your clinician.",
   alternates: { canonical: "/journal" },
 };
+
 export default function Journal() {
   return (
-    <main id="main" className="container">
+    <main id="main" className="container journal-hub">
       <StructuredData
         data={{
           "@context": "https://schema.org",
@@ -34,51 +36,42 @@ export default function Journal() {
         }}
       />
       <div className="journal-header">
-        <span className="eyebrow">THE SINUS COMPANION JOURNAL</span>
+        <span className="eyebrow">THE AIRBLOOM JOURNAL</span>
         <h1>
-          Room to
+          Sinus symptoms.
           <br />
-          <em>understand.</em>
+          <em>Room to understand.</em>
         </h1>
         <p>
-          Understand your patterns. Make routines easier to follow. Find
-          practical answers for the days your sinuses get in the way.
+          Practical guides to tracking your symptoms, remembering routines and
+          preparing for care. A clearer record starts with a little context.
         </p>
       </div>
+      <Link href="/resources" className="journal-resource-banner">
+        <Download size={24} aria-hidden="true" />
+        <span>
+          <strong>Something useful to take away.</strong>
+          <span>Free symptom diaries, logs and appointment worksheets.</span>
+        </span>
+        <ArrowUpRight size={23} aria-hidden="true" />
+      </Link>
+      <p className="journal-editorial-note">
+        Written by the <Link href="/authors/airbloom-editorial-team">AirBloom editorial team</Link>.
+        {" "}General education; these guides have not been clinically reviewed.
+        {" "}<Link href="/editorial-policy">How we handle sources and review</Link>.
+      </p>
       <span className="journal-label">
-        <BookOpen size={12} /> The everyday collection · {articles.length}{" "}
-        guides
+        <BookOpen size={12} aria-hidden="true" /> The everyday collection · {articles.length} guides
       </span>
-      <div className="article-grid journal-list">
-        {articles.map((a) => (
-          <Link
-            className="article-card"
-            href={`/journal/${a.slug}`}
-            key={a.slug}
-          >
-            <ArticleArt kind={a.art} />
-            <div className="article-meta">
-              <span>{a.category}</span>
-              <span>{a.readTime} min read</span>
-            </div>
-            <div className="article-card-title">
-              <h2
-                style={{
-                  fontSize: 32,
-                  fontFamily: "var(--serif)",
-                  letterSpacing: "-.5px",
-                }}
-              >
-                {a.title}
-              </h2>
-              <span className="round-arrow">
-                <ArrowUpRight size={20} />
-              </span>
-            </div>
-            <p>{a.description}</p>
-          </Link>
-        ))}
-      </div>
+      <JournalBrowser articles={articles.map((article) => ({
+        slug: article.slug,
+        title: article.title,
+        description: article.description,
+        category: article.category,
+        topic: article.topic,
+        readTime: article.readTime,
+        art: article.art,
+      }))} />
     </main>
   );
 }

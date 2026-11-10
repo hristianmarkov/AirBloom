@@ -1,0 +1,13 @@
+run_id,prompt_number,exact_query,engine,country,device,observed_at_iso8601,fresh_session,eligible_answer_appeared,cited_urls_semicolon_separated,airbloom_mentioned,airbloom_cited,inaccuracies,evidence_location
+,1,What should a sinus symptom diary include?,,,,,,,,,,,
+,2,Where can I get a printable sinus diary?,,,,,,,,,,,
+,3,How do I summarise my sinus symptoms for a doctor?,,,,,,,,,,,
+,4,What happens at a first ENT visit for sinus problems?,,,,,,,,,,,
+,5,What should I record in a nasal spray log?,,,,,,,,,,,
+,6,How do I compare pollen counts and symptoms?,,,,,,,,,,,
+,7,How can I describe facial pressure to a doctor?,,,,,,,,,,,
+,8,What do symptom-free days tell a clinician?,,,,,,,,,,,
+,9,Can barometric pressure affect sinuses?,,,,,,,,,,,
+,10,Why does my nose feel stuffy when I lie down?,,,,,,,,,,,
+,11,How do I record when nighttime throat mucus starts?,,,,,,,,,,,
+,12,How should I track an episode of sinus symptoms?,,,,,,,,,,,

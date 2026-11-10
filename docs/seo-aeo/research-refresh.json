@@ -1,0 +1,16 @@
+{
+  "observed_date": "2026-11-10",
+  "domain": "airbloom.app",
+  "provider_domain_estimates": {
+    "domain_rating": 0,
+    "monthly_traffic": 0,
+    "backlinks": 0,
+    "limitations": "Third-party estimates are not first-party traffic or indexing evidence."
+  },
+  "diary_exact_GB_content_brief": {
+    "serp_results": [],
+    "ai_queries_error": "Provider OpenRouter API key not configured"
+  },
+  "additional_15_GB_keyword_checks": "Returned null or automatic approval review failed because of account usage limit; no fresh competitor results verified. Blocked checks were not bypassed.",
+  "implementation_basis": "Supplied playbook dated 10 November 2026 and manuscript competitor briefs."
+}

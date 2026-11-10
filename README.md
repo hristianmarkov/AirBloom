@@ -27,7 +27,9 @@ For browser tests, install Chromium with `cd apps/web && npx playwright install 
 
 - Responsive homepage with bespoke app UI concepts, original CSS illustrations, feature stories, FAQ, internal-demo social proof, and beta CTAs.
 - Both App Store and Google Play buttons open an accessible signup dialog with the right platform selected.
-- Two full, statically rendered journal articles with direct answers, editorial attribution, references, breadcrumbs, and Article structured data.
+- Thirty-eight statically rendered journal guides covering all 50 playbook briefs, with direct answers, source citations, topic navigation, accurate metadata and review disclosures.
+- Twenty free resources, including 19 printable and browser-editable worksheets, matching seven-day XLSX/CSV, and the original two-week workbook. Completed browser worksheet entries stay in the tab.
+- About, Editorial Policy and editorial team pages, plus privacy-limited first-party engagement counts in hosting logs.
 - SEO infrastructure: unique titles/descriptions, canonicals, Open Graph image, sitemap, robots, semantic HTML, Organization/FAQ structured data, and a supplementary `llms.txt` file. `llms.txt` is not a guarantee of AI retrieval or ranking.
 - Server-only Supabase waitlist integration, input limits, consent validation, origin checks, basic in-memory rate limits, honeypot, duplicate handling, and removal requests.
 - Vercel project settings, GitHub Actions checks, and an initial RLS-protected Supabase profile migration for the future app.
@@ -38,7 +40,7 @@ Local development and Vercel previews default to demo mode. Vercel production de
 
 If Supabase is unconfigured, the form explicitly states that the address was **not saved**. There is no filesystem, browser-storage, or ephemeral server fallback masquerading as a saved signup.
 
-Public mode removes fictional social proof and enables crawling. A rebuild is required when changing modes. The canonical origin is `SITE_URL` when explicitly set; otherwise Vercel's stable production hostname is used. Public builds reject localhost and non-HTTPS canonicals. Leymora Studios and `hello@leymora.com` are the confirmed public operator and contact. See the [launch instructions](docs/DEPLOYMENT.md).
+Public mode enables crawling. Unsupported adoption figures and testimonials are excluded. A rebuild is required when changing modes. The public canonical origin is `https://www.airbloom.app`; incorrect explicit public origins fail the build. Previews remain non-indexed. Leymora Studios and `hello@leymora.com` are the confirmed public operator and contact. See the [SEO/AEO implementation and current dependencies](docs/SEO_AEO_IMPLEMENTATION.md).
 
 ## Connect the waitlist
 
@@ -52,7 +54,9 @@ The website inserts into `public.waitlist` and `public.waitlist_removal_requests
 apps/web/                         Next.js / TypeScript marketing website
   src/app/                        static pages, metadata, signup endpoint
   src/components/                 design system, app concepts, signup dialog
-  src/lib/articles.ts             typed article content
+  src/lib/articles.ts             typed content and coverage validation
+  src/lib/journal-content.json    complete journal content
+  public/downloads/              printable and editable resources
   public/app-previews/            generated app concept screenshots
   tests/                          unit/receiver tests + browser flows
 infrastructure/google-sheets/     bound Apps Script receiver
@@ -61,4 +65,4 @@ docs/                            architecture, deployment, Google setup
 .github/workflows/web.yml         website CI
 ```
 
-See [deployment status](docs/LAUNCH_STATUS.md) for verification details.
+See [deployment status](docs/LAUNCH_STATUS.md) and [SEO/AEO implementation](docs/SEO_AEO_IMPLEMENTATION.md) for verification details.

@@ -16,7 +16,7 @@ export default function Privacy() {
         <br />
         <em>about privacy.</em>
       </h1>
-      <p>Early-access waitlist notice · Updated November 9, 2026</p>
+      <p>Early-access waitlist notice · Updated November 10, 2026</p>
       <p>
         This website and early-access waitlist are operated by {site.operator}. For
         privacy questions, access, correction, or removal, contact{" "}
@@ -57,10 +57,23 @@ export default function Privacy() {
       <h2>Technical information</h2>
       <p>
         The site has no advertising cookies or third-party analytics scripts.
-        Hosting providers may process technical request logs, including IP
+        We record limited first-party engagement events to understand which
+        guides and resources are useful: guide views, template download clicks,
+        worksheet opens, print-button use, related-resource clicks, and waitlist
+        opens, successful submissions, or errors. These events contain only a
+        known event name, page identifier, and, where relevant, template
+        identifier. They do not include your email, entered worksheet content,
+        symptoms, free text, query strings, referring address, or a visitor
+        identifier. Worksheet contents stay in your browser unless you choose
+        to save or print them yourself.
+      </p>
+      <p>
+        These event counts are written to our first-party hosting logs. Hosting
+        providers may separately process technical request logs, including IP
         addresses, according to their own policies. The signup endpoint uses a
         temporary hash of a request’s IP address for in-memory rate limiting; it
-        is not added to the database.
+        is not added to the database. Engagement tracking does not create a
+        personal medical profile or link visits to your waitlist email.
       </p>
       <h2>Access and retention</h2>
       <p>

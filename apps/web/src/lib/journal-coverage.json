@@ -1,0 +1,352 @@
+[
+  {
+    "number": 1,
+    "title": "Sinus symptom diary template you can print or copy",
+    "href": "/journal/sinus-symptom-diary-template",
+    "provenance": "supplied manuscript",
+    "decision": "Build"
+  },
+  {
+    "number": 2,
+    "title": "What happens at your first ENT visit for sinus symptoms",
+    "href": "/journal/first-ent-appointment-sinus-symptoms",
+    "provenance": "supplied manuscript",
+    "decision": "Build"
+  },
+  {
+    "number": 3,
+    "title": "How to turn your sinus diary into a one-page summary",
+    "href": "/journal/sinus-symptom-summary-for-doctor",
+    "provenance": "supplied manuscript",
+    "decision": "Build"
+  },
+  {
+    "number": 4,
+    "title": "How to log a sinus flare-up from start to finish",
+    "href": "/journal/how-to-keep-a-sinus-symptom-diary#sinus-flare-up-timeline",
+    "provenance": "supplied manuscript",
+    "decision": "Merge"
+  },
+  {
+    "number": 5,
+    "title": "Can weather changes affect sinus pressure",
+    "href": "/journal/sinus-pressure-and-weather",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 6,
+    "title": "Why you might wake up with a stuffy nose",
+    "href": "/journal/waking-up-with-a-stuffy-nose",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 7,
+    "title": "How to keep a nasal spray log",
+    "href": "/journal/nasal-spray-log",
+    "provenance": "supplied manuscript",
+    "decision": "Build"
+  },
+  {
+    "number": 8,
+    "title": "What to record after a saline nasal rinse",
+    "href": "/journal/nasal-spray-log#saline-rinse-log",
+    "provenance": "supplied manuscript",
+    "decision": "Merge"
+  },
+  {
+    "number": 9,
+    "title": "A sleep diary for recurring sinus symptoms",
+    "href": "/journal/sinus-symptom-diary-template#sinus-sleep-diary",
+    "provenance": "supplied manuscript",
+    "decision": "Merge"
+  },
+  {
+    "number": 10,
+    "title": "How to compare pollen counts with nasal symptoms",
+    "href": "/journal/pollen-symptom-diary",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 11,
+    "title": "How to rate sinus symptom severity consistently",
+    "href": "/journal/how-to-keep-a-sinus-symptom-diary#rating-sinus-symptoms",
+    "provenance": "supplied manuscript",
+    "decision": "Merge"
+  },
+  {
+    "number": 12,
+    "title": "How to choose a sinus symptom tracker",
+    "href": "/journal/how-to-choose-a-sinus-symptom-tracker",
+    "provenance": "supplied manuscript",
+    "decision": "Defer"
+  },
+  {
+    "number": 13,
+    "title": "Sinus headache or migraine and what to tell your clinician",
+    "href": "/journal/sinus-headache-vs-migraine",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 14,
+    "title": "Why your nose feels more blocked at night",
+    "href": "/journal/nasal-congestion-at-night",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 15,
+    "title": "How to compare symptoms before and after your usual routine",
+    "href": "/journal/nasal-spray-log#before-and-after-nasal-spray",
+    "provenance": "supplied manuscript",
+    "decision": "Merge"
+  },
+  {
+    "number": 16,
+    "title": "Sinusitis or allergies and what to track before a visit",
+    "href": "/journal/sinusitis-vs-allergies",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 17,
+    "title": "What water is safe for a nasal rinse",
+    "href": "/journal/safe-water-for-nasal-rinse",
+    "provenance": "supplied manuscript",
+    "decision": "Defer"
+  },
+  {
+    "number": 18,
+    "title": "Chronic sinusitis symptoms and what doctors look for",
+    "href": "/journal/chronic-sinusitis-symptoms",
+    "provenance": "supplied manuscript",
+    "decision": "Defer"
+  },
+  {
+    "number": 19,
+    "title": "What facial pressure without a blocked nose can mean",
+    "href": "/journal/sinus-pressure-without-congestion",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 20,
+    "title": "Recurring sinus infections or symptoms that never clear",
+    "href": "/journal/recurrent-vs-chronic-sinusitis",
+    "provenance": "supplied manuscript",
+    "decision": "Build"
+  },
+  {
+    "number": 21,
+    "title": "How to track nasal symptoms on poor air quality days",
+    "href": "/journal/air-pollution-and-nasal-congestion",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 22,
+    "title": "Postnasal drip at night and what to write down",
+    "href": "/journal/post-nasal-drip-at-night",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 23,
+    "title": "How to describe facial pressure to your doctor",
+    "href": "/journal/describe-facial-pressure-to-doctor",
+    "provenance": "supplied manuscript",
+    "decision": "Build"
+  },
+  {
+    "number": 24,
+    "title": "What to track when your sense of smell changes",
+    "href": "/journal/sinusitis-and-loss-of-smell",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 25,
+    "title": "How long sinusitis can last and when to get advice",
+    "href": "/journal/how-long-does-sinusitis-last",
+    "provenance": "supplied manuscript",
+    "decision": "Defer"
+  },
+  {
+    "number": 26,
+    "title": "What to write in a sinus diary on good days",
+    "href": "/journal/how-to-keep-a-sinus-symptom-diary#clear-usual-and-unknown-days",
+    "provenance": "supplied manuscript",
+    "decision": "Merge"
+  },
+  {
+    "number": 27,
+    "title": "How to clean and dry a sinus rinse bottle",
+    "href": "/journal/clean-sinus-rinse-bottle",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 28,
+    "title": "Saline spray versus nasal rinse",
+    "href": "/journal/saline-spray-vs-nasal-rinse",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 29,
+    "title": "What to write down if a nasal spray feels uncomfortable",
+    "href": "/journal/nasal-spray-log#nasal-spray-discomfort",
+    "provenance": "supplied manuscript",
+    "decision": "Merge"
+  },
+  {
+    "number": 30,
+    "title": "Decongestant and steroid nasal sprays and why the label matters",
+    "href": "/journal/decongestant-vs-steroid-nasal-spray",
+    "provenance": "supplied manuscript",
+    "decision": "Defer"
+  },
+  {
+    "number": 31,
+    "title": "Can cold air or a temperature change make your nose run",
+    "href": "/journal/cold-air-runny-nose",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 32,
+    "title": "How indoor humidity and dry air fit into a sinus diary",
+    "href": "/journal/dry-air-and-nasal-congestion",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 33,
+    "title": "How to log nasal symptoms during wildfire smoke",
+    "href": "/journal/air-pollution-and-nasal-congestion#wildfire-smoke-log",
+    "provenance": "supplied manuscript",
+    "decision": "Merge"
+  },
+  {
+    "number": 34,
+    "title": "Sinus pressure when flying and what to tell your clinician",
+    "href": "/journal/sinus-pressure-when-flying",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 35,
+    "title": "What a nasal endoscopy is like",
+    "href": "/journal/what-to-expect-nasal-endoscopy",
+    "provenance": "supplied manuscript",
+    "decision": "Retarget"
+  },
+  {
+    "number": 36,
+    "title": "Postnasal drip or throat clearing and how to describe the difference",
+    "href": "/journal/post-nasal-drip-at-night#throat-clearing",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Merge"
+  },
+  {
+    "number": 37,
+    "title": "How to track fatigue alongside chronic sinus symptoms",
+    "href": "/journal/chronic-sinusitis-and-fatigue",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Defer"
+  },
+  {
+    "number": 38,
+    "title": "What the SNOT-22 questionnaire measures",
+    "href": "/journal/what-is-snot-22",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Defer"
+  },
+  {
+    "number": 39,
+    "title": "Sinus symptoms and ear pressure and what to record",
+    "href": "/journal/sinus-symptoms-and-ear-pressure",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Retarget"
+  },
+  {
+    "number": 40,
+    "title": "Chronic sinusitis with and without nasal polyps",
+    "href": "/journal/chronic-sinusitis-and-nasal-polyps",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Defer"
+  },
+  {
+    "number": 41,
+    "title": "When to get advice for symptoms that keep affecting one side",
+    "href": "/journal/persistent-one-sided-nasal-congestion",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Defer"
+  },
+  {
+    "number": 42,
+    "title": "What to note when facial pressure is worse in the morning",
+    "href": "/journal/describe-facial-pressure-to-doctor#morning-facial-pressure",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Merge"
+  },
+  {
+    "number": 43,
+    "title": "How to compare two weeks of sinus symptoms",
+    "href": "/journal/sinus-symptom-summary-for-doctor#compare-two-weeks",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Merge"
+  },
+  {
+    "number": 44,
+    "title": "What to ask about chronic sinusitis treatment options",
+    "href": "/journal/prepare-for-your-ent-appointment#treatment-questions",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Merge"
+  },
+  {
+    "number": 45,
+    "title": "What to put in a medication list for an ENT visit",
+    "href": "/journal/prepare-for-your-ent-appointment#medication-list",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Merge"
+  },
+  {
+    "number": 46,
+    "title": "How to log sinus symptoms with a spreadsheet",
+    "href": "/journal/sinus-symptom-diary-template#sinus-tracker-spreadsheet",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Merge"
+  },
+  {
+    "number": 47,
+    "title": "How to keep a sinus diary private when sharing it",
+    "href": "/journal/sinus-diary-privacy",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Defer"
+  },
+  {
+    "number": 48,
+    "title": "How to record changes after sinus surgery for your follow-up",
+    "href": "/journal/sinus-surgery-recovery-diary",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Defer"
+  },
+  {
+    "number": 49,
+    "title": "What to record when symptoms return after a cold",
+    "href": "/journal/how-long-does-sinusitis-last#symptoms-after-a-cold",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Merge"
+  },
+  {
+    "number": 50,
+    "title": "How to track indoor irritants alongside nasal symptoms",
+    "href": "/journal/dry-air-and-nasal-congestion#indoor-irritants",
+    "provenance": "new draft from supplied playbook brief",
+    "decision": "Merge"
+  }
+]

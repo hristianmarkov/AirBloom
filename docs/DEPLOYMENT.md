@@ -5,8 +5,8 @@
 The website is ready for a Vercel project, with `apps/web` as its **Root Directory**. The monorepo lockfile is at the repository root. Settings live in `apps/web/vercel.json`: Next.js framework, `cd ../.. && npm ci` installation, and `npm run build` from `apps/web`. Keep Vercel's “Include source files outside of the Root Directory” enabled so npm can see the root lockfile and workspace.
 
 1. Commit and push the reviewed repository to GitHub.
-2. Import `hristianmarkov/FindEase` in your authorized Vercel account, selecting `apps/web` as Root Directory.
-3. Production deployments now select public mode automatically; previews remain demo/non-indexed. Do not set `NEXT_PUBLIC_SITE_MODE=demo` in Production. Leave `SITE_URL` unset to use Vercel's stable production hostname, or set it to your final HTTPS domain. Redeploy after changing the address.
+2. Use the existing `airbloom` Vercel project linked to `hristianmarkov/AirBloom`, with `apps/web` as Root Directory.
+3. Production deployments select public mode automatically; previews remain demo/non-indexed. Do not set `NEXT_PUBLIC_SITE_MODE=demo` in Production. Set Production `SITE_URL=https://www.airbloom.app`. Public builds default to that origin and reject a conflicting explicit origin. Redeploy after changing the address.
 4. Set `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` following `SUPABASE_WAITLIST.md`.
 5. For a public release, verify that Deployment Protection is disabled for the production domain so visitors and search engines can reach it. Restrict internal previews separately if desired.
 6. Verify homepage, both articles, `/privacy`, app-store dialogs, and an actual Supabase write in the deployed environment.
@@ -17,14 +17,17 @@ The tagged service plugins were not exposed as callable tools during initial imp
 
 The default internal demo intentionally cannot be indexed. Public launch is a separate switch:
 
-- Confirm the brand name and final domain. Set `SITE_URL` to that HTTPS origin.
+- The confirmed canonical is `https://www.airbloom.app`. Apex and legacy-host redirects preserve the requested path and query.
 - The confirmed operator/contact are Leymora Studios and `hello@leymora.com`; review the published retention commitments with the administrator.
-- Have the educational content reviewed and update attribution/review dates accurately. Do not invent clinical reviewer identities.
+- All 50 briefs are implemented across 38 owning guides. Have the educational content reviewed and update attribution/review dates accurately. No clinical review has been supplied; do not invent reviewer identities.
 - Set `NEXT_PUBLIC_SITE_MODE=production` and rebuild. Fictional adoption numbers, ratings, and testimonials disappear; robots allows the public pages; the sitemap includes canonical URLs.
 - Keep `/demo/` concept screens out of indexing; they remain explicitly marked as previews.
 - Verify JSON-LD reflects visible content, Open Graph images load, and article source links work. FAQ markup does not guarantee rich results or AI citations.
 - Submit `/sitemap.xml` using the owner's Search Console/Bing accounts when the canonical domain is live. Consider adding original, reviewed educational content over time.
+- Optional URL-prefix verification metadata uses `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION`. Google Domain property verification uses DNS. Never commit private account credentials.
 - Validate the live waitlist end to end. Missing receiver configuration returns an error in production rather than a fake success.
+
+See [the complete SEO/AEO delivery record](SEO_AEO_IMPLEMENTATION.md) for the 50-topic mapping, resource and source registers, launch checks, measurement dictionary, and account-backed tasks.
 
 ## Supabase and future mobile app
 

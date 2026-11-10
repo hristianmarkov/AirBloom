@@ -10,6 +10,7 @@ import {
 } from "react";
 import { ArrowRight, Check, LoaderCircle, Mail, X } from "lucide-react";
 import { AppleIcon, BrandMark, PlayIcon } from "./icons";
+import { trackEngagement } from "@/lib/analytics";
 
 type Platform = "ios" | "android" | "both";
 const WaitlistContext = createContext<(platform?: Platform) => void>(() => {});
@@ -63,6 +64,9 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
           data.error || "We couldn’t save your email. Please try again.",
         );
       setState(data.demo ? "demo" : "success");
+      if (data.ok === true && data.demo !== true && !fields.get("website")) {
+        trackEngagement({ event: "waitlist_signup_success", page_id: window.location.pathname });
+      }
     } catch (err) {
       setError(
         err instanceof Error
@@ -70,6 +74,7 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
           : "Something went wrong. Please try again.",
       );
       setState("error");
+      trackEngagement({ event: "waitlist_signup_error", page_id: window.location.pathname });
     }
   }
   return (
@@ -81,6 +86,7 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
         setState("idle");
         setError("");
         setOpen(true);
+        trackEngagement({ event: "waitlist_open", page_id: window.location.pathname });
       }}
     >
       {children}

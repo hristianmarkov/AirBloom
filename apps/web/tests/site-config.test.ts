@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { resolveSiteConfig } from "../src/lib/site-config";
+import { productionOrigin, resolveSiteConfig } from "../src/lib/site-config";
 
 test("local development remains a private demo", () => {
   assert.deepEqual(resolveSiteConfig({}), {
@@ -8,40 +8,44 @@ test("local development remains a private demo", () => {
     url: "http://localhost:3000",
   });
 });
-test("Vercel production selects public mode and the stable production hostname", () => {
+test("production uses the AirBloom domain even when Vercel supplies an old host", () => {
   assert.deepEqual(
     resolveSiteConfig({
       VERCEL_ENV: "production",
-      VERCEL_PROJECT_PRODUCTION_URL: "sinus-companion.vercel.app",
-      VERCEL_URL: "sinus-companion-random.vercel.app",
+      VERCEL_PROJECT_PRODUCTION_URL: "findease.vercel.app",
+      VERCEL_URL: "findease-random.vercel.app",
     }),
-    { demo: false, url: "https://sinus-companion.vercel.app" },
+    { demo: false, url: productionOrigin },
   );
 });
-test("a preview stays non-indexed, and an explicit canonical domain wins", () => {
-  assert.equal(
+test("preview deployments remain non-indexed and never become canonical hosts", () => {
+  assert.deepEqual(
     resolveSiteConfig({
       VERCEL_ENV: "preview",
       VERCEL_URL: "preview.vercel.app",
-    }).demo,
-    true,
+      VERCEL_PROJECT_PRODUCTION_URL: "findease.vercel.app",
+    }),
+    { demo: true, url: productionOrigin },
   );
   assert.deepEqual(
     resolveSiteConfig({
       NEXT_PUBLIC_SITE_MODE: "production",
-      SITE_URL: "https://sinus.example/",
-      VERCEL_PROJECT_PRODUCTION_URL: "fallback.vercel.app",
+      SITE_URL: `${productionOrigin}/`,
     }),
-    { demo: false, url: "https://sinus.example" },
+    { demo: false, url: productionOrigin },
   );
 });
-test("public builds reject localhost and unsafe canonical URLs", () => {
+test("public builds reject any incorrect canonical origin", () => {
   for (const SITE_URL of [
     "http://localhost:3000",
-    "http://public.example",
-    "https://user:password@example.com",
-    "https://example.com/subpath",
-    "https://example.com/?x=1",
+    "http://www.airbloom.app",
+    "https://airbloom.app",
+    "https://findease.vercel.app",
+    "https://sinus.example",
+    "https://user:password@www.airbloom.app",
+    "https://www.airbloom.app/subpath",
+    "https://www.airbloom.app/?x=1",
+    "https://www.airbloom.app/#section",
   ]) {
     assert.throws(() =>
       resolveSiteConfig({ NEXT_PUBLIC_SITE_MODE: "production", SITE_URL }),

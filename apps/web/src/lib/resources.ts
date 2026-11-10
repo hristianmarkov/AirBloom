@@ -1,0 +1,194 @@
+export type Resource = {
+  id: string;
+  title: string;
+  description: string;
+  pdf?: string;
+  editable?: string;
+  spreadsheet?: string;
+  csv?: string;
+  articleSlug: string;
+  example?: boolean;
+};
+
+export const resources: Resource[] = [
+  {
+    "id": "sinus-symptom-diary",
+    "title": "Seven-day sinus symptom diary",
+    "description": "A blank seven-day record and a completed fictional week, keeping clear, usual and missed days separate.",
+    "pdf": "/downloads/sinus-symptom-diary.pdf",
+    "editable": "/downloads/sinus-symptom-diary.html",
+    "articleSlug": "sinus-symptom-diary-template",
+    "example": false,
+    "spreadsheet": "/downloads/seven-day-sinus-diary.xlsx",
+    "csv": "/downloads/seven-day-sinus-diary.csv"
+  },
+  {
+    "id": "sinus-summary-blank",
+    "title": "One-page sinus summary",
+    "description": "A fillable appointment handoff for dates, coverage, changes, daily impact, routines and questions.",
+    "pdf": "/downloads/sinus-summary-blank.pdf",
+    "editable": "/downloads/sinus-summary-blank.html",
+    "articleSlug": "sinus-symptom-summary-for-doctor",
+    "example": false
+  },
+  {
+    "id": "sinus-summary-example",
+    "title": "Worked sinus summary",
+    "description": "A fictional two-week example with 11 of 14 mornings recorded and missing follow-up kept visible.",
+    "pdf": "/downloads/sinus-summary-example.pdf",
+    "editable": "/downloads/sinus-summary-example.html",
+    "articleSlug": "sinus-symptom-summary-for-doctor",
+    "example": true
+  },
+  {
+    "id": "nasal-routine-log",
+    "title": "Nasal spray and rinse routine log",
+    "description": "Separate spray, rinse, follow-up and pharmacist handoff tables. Record existing instructions; do not use the sheet to choose doses.",
+    "pdf": "/downloads/nasal-routine-log.pdf",
+    "editable": "/downloads/nasal-routine-log.html",
+    "articleSlug": "nasal-spray-log",
+    "example": false
+  },
+  {
+    "id": "sinus-sleep-diary",
+    "title": "Optional nights worksheet",
+    "description": "Bedtime, overnight and waking observations, with wearable estimates in a separate field.",
+    "pdf": "/downloads/sinus-sleep-diary.pdf",
+    "editable": "/downloads/sinus-sleep-diary.html",
+    "articleSlug": "sinus-symptom-diary-template",
+    "example": false
+  },
+  {
+    "id": "pollen-symptom-diary",
+    "title": "Pollen and nasal symptom diary",
+    "description": "Pair the named provider and pollen level with time outside, symptoms and missing readings.",
+    "pdf": "/downloads/pollen-symptom-diary.pdf",
+    "editable": "/downloads/pollen-symptom-diary.html",
+    "articleSlug": "pollen-symptom-diary",
+    "example": false
+  },
+  {
+    "id": "headache-note-card",
+    "title": "Headache and nasal symptom note card",
+    "description": "Describe the order, duration, location and impact of headache and nasal observations.",
+    "pdf": "/downloads/headache-note-card.pdf",
+    "editable": "/downloads/headache-note-card.html",
+    "articleSlug": "sinus-headache-vs-migraine",
+    "example": false
+  },
+  {
+    "id": "bedtime-congestion-card",
+    "title": "Bedtime congestion observation card",
+    "description": "Compare how you felt before lying down, after settling and when next upright.",
+    "pdf": "/downloads/bedtime-congestion-card.pdf",
+    "editable": "/downloads/bedtime-congestion-card.html",
+    "articleSlug": "nasal-congestion-at-night",
+    "example": false
+  },
+  {
+    "id": "sinus-episode-gap-log",
+    "title": "Sinus episode and gap worksheet",
+    "description": "Record stretches of symptoms and whether the gaps were clear, ongoing or unknown.",
+    "pdf": "/downloads/sinus-episode-gap-log.pdf",
+    "editable": "/downloads/sinus-episode-gap-log.html",
+    "articleSlug": "recurrent-vs-chronic-sinusitis",
+    "example": false
+  },
+  {
+    "id": "air-quality-symptom-log",
+    "title": "Air quality and nasal symptoms log",
+    "description": "Keep the reading time separate from your check-in time, and record the provider, index and setting.",
+    "pdf": "/downloads/air-quality-symptom-log.pdf",
+    "editable": "/downloads/air-quality-symptom-log.html",
+    "articleSlug": "air-pollution-and-nasal-congestion",
+    "example": false
+  },
+  {
+    "id": "facial-pressure-card",
+    "title": "Facial pressure note card",
+    "description": "An accessible face map and three-part handoff for location, timing and impact.",
+    "pdf": "/downloads/facial-pressure-card.pdf",
+    "editable": "/downloads/facial-pressure-card.html",
+    "articleSlug": "describe-facial-pressure-to-doctor",
+    "example": false
+  },
+  {
+    "id": "room-conditions-log",
+    "title": "Room conditions and nasal symptoms log",
+    "description": "Log indoor measurements, room context, noticed irritants and symptoms without assuming a cause.",
+    "pdf": "/downloads/room-conditions-log.pdf",
+    "editable": "/downloads/room-conditions-log.html",
+    "articleSlug": "dry-air-and-nasal-congestion",
+    "example": false
+  },
+  {
+    "id": "flight-symptom-card",
+    "title": "Flight and landing symptom card",
+    "description": "Separate ear and facial observations across boarding, climb, cruise, descent and after landing.",
+    "pdf": "/downloads/flight-symptom-card.pdf",
+    "editable": "/downloads/flight-symptom-card.html",
+    "articleSlug": "sinus-pressure-when-flying",
+    "example": false
+  },
+  {
+    "id": "morning-congestion-card",
+    "title": "Morning congestion observation card",
+    "description": "Compare on-waking symptoms with a later check; include mornings without symptoms.",
+    "pdf": "/downloads/morning-congestion-card.pdf",
+    "editable": "/downloads/morning-congestion-card.html",
+    "articleSlug": "waking-up-with-a-stuffy-nose",
+    "example": false
+  },
+  {
+    "id": "cold-air-transition-card",
+    "title": "Cold-air transition observation card",
+    "description": "Record a temperature transition and a comparable trip without symptoms.",
+    "pdf": "/downloads/cold-air-transition-card.pdf",
+    "editable": "/downloads/cold-air-transition-card.html",
+    "articleSlug": "cold-air-runny-nose",
+    "example": false
+  },
+  {
+    "id": "nasal-spray-label-worksheet",
+    "title": "Nasal spray label-reading worksheet",
+    "description": "Copy the exact country-specific label and your questions for a pharmacist; this is not a product recommendation.",
+    "pdf": "/downloads/nasal-spray-label-worksheet.pdf",
+    "editable": "/downloads/nasal-spray-label-worksheet.html",
+    "articleSlug": "decongestant-vs-steroid-nasal-spray",
+    "example": false
+  },
+  {
+    "id": "ent-medication-list",
+    "title": "Medication list for an ENT visit",
+    "description": "Bring the exact product, how you actually used it and uncertain details to your appointment.",
+    "pdf": "/downloads/ent-medication-list.pdf",
+    "editable": "/downloads/ent-medication-list.html",
+    "articleSlug": "prepare-for-your-ent-appointment",
+    "example": false
+  },
+  {
+    "id": "sinus-surgery-followup",
+    "title": "Sinus surgery follow-up observations",
+    "description": "Your surgical team’s instructions and contact pathway come first. Record observations for their review.",
+    "pdf": "/downloads/sinus-surgery-followup.pdf",
+    "editable": "/downloads/sinus-surgery-followup.html",
+    "articleSlug": "sinus-surgery-recovery-diary",
+    "example": false
+  },
+  {
+    "id": "smell-change-log",
+    "title": "Smell change observation log",
+    "description": "Describe what changed, when and whether it was noticed or not checked.",
+    "pdf": "/downloads/smell-change-log.pdf",
+    "editable": "/downloads/smell-change-log.html",
+    "articleSlug": "sinusitis-and-loss-of-smell",
+    "example": false
+  },
+  {
+    "id": "two-week-sinus-diary",
+    "title": "Two-week sinus symptom diary",
+    "description": "The supplied editable workbook, with a fictional example and separate counts for recorded days, missed checks and blank rows.",
+    "spreadsheet": "/downloads/AirBloom_Sinus_Symptom_Diary.xlsx",
+    "articleSlug": "sinus-symptom-diary-template"
+  }
+];

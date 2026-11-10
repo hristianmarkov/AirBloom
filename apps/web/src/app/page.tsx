@@ -16,7 +16,6 @@ import {
   Wind,
 } from "lucide-react";
 import { AppPreview, TrendChart } from "@/components/app-preview";
-import { Testimonials } from "@/components/testimonials";
 import { ProductTour } from "@/components/product-tour";
 import { ArticleArt } from "@/components/article-art";
 import { BrandMark } from "@/components/icons";
@@ -127,7 +126,7 @@ export default function Home() {
                 Take a look inside <ArrowDown size={15} />
               </a>
             </div>
-            <div className="hero-community"><span className="community-mark"><BrandMark /></span><div><strong>12k+ users</strong><span>One shared goal. More room for life.</span></div></div>
+            <div className="hero-community"><span className="community-mark"><BrandMark /></span><div><strong>Start with one small note.</strong><span><Link href="/resources">Explore free diaries and printable worksheets.</Link></span></div></div>
 
           </div>
           <div
@@ -466,7 +465,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Testimonials />
 
       <section className="care-note">
         <div className="container">

@@ -1,11 +1,12 @@
+export const productionOrigin = "https://www.airbloom.app";
+
 export function resolveSiteConfig(env: Record<string, string | undefined>) {
   const demo = env.NEXT_PUBLIC_SITE_MODE
     ? env.NEXT_PUBLIC_SITE_MODE !== "production"
     : env.VERCEL_ENV !== "production";
-  const hostname = env.VERCEL_PROJECT_PRODUCTION_URL || env.VERCEL_URL;
   const rawUrl =
     env.SITE_URL ||
-    (hostname ? `https://${hostname}` : "http://localhost:3000");
+    (!demo || env.VERCEL_ENV ? productionOrigin : "http://localhost:3000");
   const parsed = new URL(rawUrl);
   if (
     !["http:", "https:"].includes(parsed.protocol) ||
@@ -20,12 +21,10 @@ export function resolveSiteConfig(env: Record<string, string | undefined>) {
     );
   }
   if (
-    !demo &&
-    (parsed.protocol !== "https:" ||
-      ["localhost", "127.0.0.1", "[::1]"].includes(parsed.hostname))
+    !demo && parsed.origin !== productionOrigin
   ) {
     throw new Error(
-      "Public builds require an HTTPS SITE_URL or Vercel's production hostname.",
+      `Public builds require SITE_URL=${productionOrigin}. Vercel deployment hostnames are not canonical origins.`,
     );
   }
   return { demo, url: parsed.origin };

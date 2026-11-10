@@ -1,0 +1,1342 @@
+[
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   01",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Seven day sinus symptom diary"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Name or initials ____________________    Week of ____________________"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Overall labels. Clear, my usual, better than usual, worse than usual, or not recorded."
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Date",
+            "Overall",
+            "Blockage and side",
+            "Pressure and location",
+            "Smell",
+            "Impact or context"
+          ],
+          [
+            "Day 1",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 2",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 3",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 4",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 5",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 6",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 7",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Heading 2",
+        "text": "Fictional completed week"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Date",
+            "Overall",
+            "Blockage and side",
+            "Pressure and location",
+            "Smell",
+            "Impact or context"
+          ],
+          [
+            "Mon 7 Sep",
+            "My usual",
+            "Mild, both",
+            "None noticed",
+            "Unchanged",
+            "Usual work day"
+          ],
+          [
+            "Tue 8 Sep",
+            "Worse",
+            "More blocked on left",
+            "Left cheek after lunch",
+            "Unchanged",
+            "Woke once overnight"
+          ],
+          [
+            "Wed 9 Sep",
+            "Not recorded",
+            "",
+            "",
+            "",
+            "No check-in"
+          ],
+          [
+            "Thu 10 Sep",
+            "Worse",
+            "More blocked on left",
+            "Left cheek, brief",
+            "Unsure",
+            "Stopped once during a walk"
+          ],
+          [
+            "Fri 11 Sep",
+            "My usual",
+            "Mild, both",
+            "None noticed",
+            "Unchanged",
+            "No impact noted"
+          ],
+          [
+            "Sat 12 Sep",
+            "Better",
+            "Slight, right",
+            "None noticed",
+            "Unchanged",
+            "Slept through, as recalled"
+          ],
+          [
+            "Sun 13 Sep",
+            "Clear",
+            "None at check-in",
+            "None at check-in",
+            "Normal for me",
+            "No impact noted"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Week recap. Six of seven days logged. Left side felt more blocked on two recorded days. Wednesday is unknown."
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   03",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "One page sinus symptom summary"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Name or initials ____________________    Appointment date ____________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Why I booked"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "What is the main thing you want to discuss?"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Dates and coverage"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Dates your notes cover and how many days you logged."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Main pattern"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "When it changed, where you felt it, and what you noticed between episodes."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Daily impact"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "One example that shows how it affected your life."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "What I used"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Product or routine and what you remember about using it."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "My questions"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Write your most important question first."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Next step and who will arrange it"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Use this space during or after your appointment."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   03",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Worked sinus symptom summary"
+      },
+      {
+        "type": "p",
+        "style": "Subtitle",
+        "text": "Fictional example   /   7 to 20 September"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Why I booked"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "I’d like help understanding the recent increase in morning blockage."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Dates and coverage"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "7–20 September. I recorded 11 of 14 mornings."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Main pattern"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Blockage was worse than my usual on 2 of 5 recorded mornings in week one and 4 of 6 in week two. Three week-two entries mentioned the left side felt more blocked. I’m unsure what happened on the three missed mornings."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Daily impact"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "I woke overnight on 10 September and felt tired at work the next day."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "What I used"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "I recorded saline rinses on 9 and 16 September. I felt clearer after the first. I didn’t record a follow-up after the second."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "My questions"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "What would you check to understand why it’s often worse on the left? What should I keep recording before we review it?"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Next step and who will arrange it"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Space to fill during the appointment."
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   07 AND 08",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Nasal spray and rinse routine log"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Week of ____________________   Use one row per event. Mark use as used, not used, or unsure."
+      },
+      {
+        "type": "p",
+        "style": "Heading 2",
+        "text": "Spray log"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Date and product",
+            "Planned time",
+            "Actual time and status",
+            "Before and later observation"
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Heading 2",
+        "text": "Rinse and follow-up log"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Date and time",
+            "Device or product",
+            "Before",
+            "Later observation and time",
+            "Anything else"
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Heading 2",
+        "text": "Pharmacist handoff card"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Product and time",
+            "What I noticed and when",
+            "Did it happen again",
+            "Question to ask"
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Keep the product leaflet or care plan nearby. If a use is uncertain, follow the leaflet or ask your pharmacist. See the rinse safety guidance before preparing a rinse."
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   09",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Optional nights worksheet"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Week of ____________________   Date each row by the evening the night began."
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Night starting",
+            "At bedtime",
+            "What I remember overnight",
+            "On waking",
+            "Optional device estimate"
+          ],
+          [
+            "Night 1",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 2",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 3",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 4",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 5",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 6",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 7",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Keep your recollection and device estimate separate. Use “not recorded” if you missed a check and “no reading” for a missing device estimate."
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   10",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Pollen and nasal symptom diary"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Week of ____________________   Provider ____________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Area or station ____________________   Forecast or measured count ____________________"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Date and time",
+            "Pollen type and level",
+            "Time and place outdoors",
+            "Nasal or eye symptoms",
+            "Other context"
+          ],
+          [
+            "Day 1",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 2",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 3",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 4",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 5",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 6",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Day 7",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Use the provider’s level or unit as shown. Mark “no local reading” when data are unavailable and “not recorded” if you skipped the symptom check."
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   13",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Headache and nasal symptom note card"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Date ____________________   Start time or best estimate ____________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Start and end"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "What appeared first, and when did the different symptoms settle?"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Where and how"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Side, location and your own description of the feeling."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Nose and smell"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Blockage, drainage, watery eyes, smell change or a check that was clear."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "What came with it"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Light or sound sensitivity, nausea, a recent cold or another observation."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Impact and action"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "What it interrupted, what you used as part of your usual plan, and when."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Question for my clinician"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Write the question you want to ask first."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   14",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Bedtime nasal congestion observation card"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Week of ____________________   Record when you naturally notice a change."
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Night and room",
+            "Before lying down",
+            "After settling",
+            "When I next got up",
+            "Other observations"
+          ],
+          [
+            "Night 1",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 2",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 3",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 4",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 5",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 6",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Night 7",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Include the time, which side felt blocked and whether you were sitting, lying or upright. Use “not recorded” for a missed check."
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   20",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Sinus episode and gap worksheet"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Date range ____________________   Note approximate dates where needed."
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Period",
+            "Main symptoms",
+            "Between bouts",
+            "Visits and uncertainty"
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Between bouts, use “clear”, “ongoing” or “unknown”. If you returned to your usual symptoms and some remained, write down which ones."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Question to ask ____________________"
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   21",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Air quality and nasal symptoms log"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Week of ____________________   Area and index ____________________"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Check-in date and time",
+            "Reading date and time",
+            "Source, index and band",
+            "Indoors or outdoors",
+            "What I noticed"
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Label a forecast as a forecast. Use the same index and provider for comparisons. Leave unavailable readings and missed check-ins marked separately."
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   23",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Facial pressure note card"
+      },
+      {
+        "type": "image",
+        "src": "face-map.png",
+        "alt": "Front-facing face with location labels for the forehead or brow, temple, around the eye, bridge of the nose, cheek or upper teeth, and jaw. Labels describe location only."
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Use these labels to describe where you felt the pressure."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Date and start time or estimate ________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Where and when"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Write the first location, side and when you first noticed it."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "What happened next"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Write how it felt, how long it lasted and what else you noticed."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet prompt",
+        "text": "Impact and my question"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Write what it interrupted and the question you want to ask."
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "________________________________________________________________________________"
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   32",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Room conditions and nasal symptoms log"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Week of ____________________   Meter or source ____________________"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Date, time and room",
+            "Indoor reading and meter location",
+            "Heat or window",
+            "Damp signs or irritants",
+            "Symptoms and onset"
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "Keep outdoor weather in a separate note. Mark indoor humidity “not measured” if you didn’t use a meter."
+      }
+    ]
+  },
+  {
+    "heading": "PRINTABLE WORKSHEETS   /   34",
+    "blocks": [
+      {
+        "type": "p",
+        "style": "Heading 1",
+        "text": "Flight and landing symptom card"
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Flight date ____________________   Route ____________________"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Stage",
+            "Time or estimate",
+            "Facial symptoms and side",
+            "Ear symptoms and side",
+            "What changed later"
+          ],
+          [
+            "Before boarding",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Takeoff and climb",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Cruise",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Descent and landing",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "After landing",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "style": "Worksheet fill",
+        "text": "Question to ask _______________________________________________________"
+      },
+      {
+        "type": "p",
+        "style": "Meta",
+        "text": "If you only know the stage, record it without guessing a time. Describe facial and ear symptoms separately."
+      }
+    ]
+  }
+]
